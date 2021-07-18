@@ -18,31 +18,30 @@ class Authorization extends CI_Controller {
     
     function auth(){
         $email = $this->input->post('email');
-        $password = $this->input->post('pass');
+        $password = $this->input->post('password');
                 
         $validasi_email = $this->Mlogin->query_validasi_email($email);
         if ($validasi_email->num_rows() > 0) {
             $validate_ps=$this->Mlogin->query_validasi_password($email,$password);
             if($validate_ps->num_rows() > 0){
                 $x = $validate_ps->row_array();
-                if($x['user_status']=='1'){
+                if($x['status']=='1'){
                     $this->session->set_userdata('logged',TRUE);
                     $this->session->set_userdata('user',$email);
-                    $id=$x['user_id'];
-                    if ($x['user_akses']=='1') { //Administrator
-                        $name = $x['user_name'];
+                    $id=$x['id'];
+                    if ($x['role']=='1') { //Administrator
+                        $name = $x['name'];
                         $this->session->set_userdata('access','Administrator');
                         $this->session->set_userdata('id',$id);
                         $this->session->set_userdata('name',$name);
                         redirect('home');
 
-                    } else if ($x['user_akses']=='2') { //Dosen
-                        $name = $x['user_name'];
+                    } else if ($x['role']=='2') { //Other
+                        $name = $x['name'];
                         $this->session->set_userdata('access','Dosen');
                         $this->session->set_userdata('id',$id);
                         $this->session->set_userdata('name',$name);
                         redirect('home');
-
                     }
                 } else {
                     $url=base_url('login');

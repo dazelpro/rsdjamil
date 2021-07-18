@@ -21,20 +21,21 @@
                         <a href=""><img src="<?php echo base_url().'assets/'?>/images/logo/logo.png" alt="Logo"></a>
                     </div>
                     <h1 class="auth-title">Log in.</h1>
-                    <form action="<?php echo site_url('authorization/auth');?>">
+                    <form action="<?php echo site_url('authorization/auth');?>" method="POST">
                         <div class="form-group position-relative has-icon-left mb-4">
-                            <input type="text" class="form-control form-control-xl" placeholder="Username or Email">
+                            <input type="text" class="form-control form-control-xl" name="email" placeholder="Username or Email">
                             <div class="form-control-icon">
                                 <i class="bi bi-person"></i>
                             </div>
                         </div>
                         <div class="form-group position-relative has-icon-left mb-4">
-                            <input type="password" class="form-control form-control-xl" placeholder="Password">
+                            <input type="password" class="form-control form-control-xl" name="password" placeholder="Password">
                             <div class="form-control-icon">
                                 <i class="bi bi-shield-lock"></i>
                             </div>
                         </div>
                         <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5">Log in</button>
+                        <?php echo $this->session->flashdata('msg');?>
                     </form>
                 </div>
             </div>
