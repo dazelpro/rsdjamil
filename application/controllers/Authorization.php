@@ -29,16 +29,22 @@ class Authorization extends CI_Controller {
                     $this->session->set_userdata('logged',TRUE);
                     $this->session->set_userdata('user',$email);
                     $id=$x['id'];
-                    if ($x['role']=='1') { //Administrator
+                    if ($x['role']=='0') { //Admin Radiologi
                         $name = $x['name'];
-                        $this->session->set_userdata('access','Administrator');
+                        $this->session->set_userdata('access','Admin Radiologi');
                         $this->session->set_userdata('id',$id);
                         $this->session->set_userdata('name',$name);
                         redirect('dashboard');
 
-                    } else if ($x['role']=='2') { //Other
+                    } else if ($x['role']=='1') { //Dokter Pengantar
                         $name = $x['name'];
-                        $this->session->set_userdata('access','Dosen');
+                        $this->session->set_userdata('access','Dokter Pengantar');
+                        $this->session->set_userdata('id',$id);
+                        $this->session->set_userdata('name',$name);
+                        redirect('dashboard');
+                    } else if ($x['role']=='2') { //Dokter Radiologi
+                        $name = $x['name'];
+                        $this->session->set_userdata('access','Dokter Radiologi');
                         $this->session->set_userdata('id',$id);
                         $this->session->set_userdata('name',$name);
                         redirect('dashboard');

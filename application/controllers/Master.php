@@ -11,10 +11,6 @@ class Master extends CI_Controller {
 		};
 	}
 
-	public function index() {
-		$this->load->view('v-dashboard');
-	}
-
     function pageRoom() {
         $this->load->view('v-dashboard');
     }
