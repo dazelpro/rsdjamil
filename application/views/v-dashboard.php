@@ -43,12 +43,54 @@
 
                         <li class="sidebar-item  has-sub">
                             <a href="#" class='sidebar-link'>
-                                <i class="bi bi-stack"></i>
+                                <i class="bi bi-grid-1x2-fill"></i>
                                 <span>Master</span>
                             </a>
                             <ul class="submenu ">
                                 <li class="submenu-item ">
-                                    <a href="component-alert.html">Alert</a>
+                                    <a href="<?php echo base_url().'master/room'?>">Ruangan</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="<?php echo base_url().'master/film-size'?>">Ukuran Film</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="sidebar-item  has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i class="bi bi-file-earmark-medical-fill"></i>
+                                <span>Tindakan</span>
+                            </a>
+                            <ul class="submenu ">
+                                <li class="submenu-item ">
+                                    <a href="extra-component-avatar.html">Pasien</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="extra-component-avatar.html">Tindakan</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="extra-component-avatar.html">Citra Radiologi</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="extra-component-avatar.html">Bacaan Citra</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="sidebar-item  has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i class="bi bi-person-badge-fill"></i>
+                                <span>Akun</span>
+                            </a>
+                            <ul class="submenu ">
+                                <li class="submenu-item ">
+                                    <a href="extra-component-avatar.html">Admin Radiologi</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="extra-component-avatar.html">Dokter Pengirim</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="extra-component-avatar.html">Dokter Radiologi</a>
                                 </li>
                             </ul>
                         </li>

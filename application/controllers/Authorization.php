@@ -11,7 +11,7 @@ class Authorization extends CI_Controller {
         if ($this->session->userdata('logged') !=TRUE) {
             $this->load->view('v-login');
         } else {
-            $url=base_url('home');
+            $url=base_url('dashboard');
             redirect($url);
         };
     }
@@ -34,14 +34,14 @@ class Authorization extends CI_Controller {
                         $this->session->set_userdata('access','Administrator');
                         $this->session->set_userdata('id',$id);
                         $this->session->set_userdata('name',$name);
-                        redirect('home');
+                        redirect('dashboard');
 
                     } else if ($x['role']=='2') { //Other
                         $name = $x['name'];
                         $this->session->set_userdata('access','Dosen');
                         $this->session->set_userdata('id',$id);
                         $this->session->set_userdata('name',$name);
-                        redirect('home');
+                        redirect('dashboard');
                     }
                 } else {
                     $url=base_url('login');
