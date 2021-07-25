@@ -12,7 +12,8 @@ class Dashboard extends CI_Controller {
 	}
 
 	public function index() {
-		$this->load->view('v-dashboard');
+		$data['activeMenu'] = '1';
+		$this->load->view('v-dashboard', $data);
 	}
 
 }

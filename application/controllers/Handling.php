@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Master extends CI_Controller {
+class Handling extends CI_Controller {
 	
 	function __construct(){
 		parent::__construct();
@@ -12,13 +12,12 @@ class Master extends CI_Controller {
 	}
 
     function pageRoom() {
-        $data['dataRoom']       = $this->db->query("SELECT * FROM table_room");
-        $query                  = $this->db->query("SELECT MAX(id) AS newCode FROM table_room")->row_array();
-        $lastID                 = $query['newCode'];
-        $numb                   = substr($lastID, 1, 4);
-        $newID                  = $numb + 1;
-        $data['code']           = $newID;
-        $data['activeMenu']     = '2';
+        $data['dataRoom']   = $this->db->query("SELECT * FROM table_room");
+        $query              = $this->db->query("SELECT MAX(id) AS newCode FROM table_room")->row_array();
+        $lastID             = $query['newCode'];
+        $numb               = substr($lastID, 1, 4);
+        $newID              = $numb + 1;
+        $data['code']       = $newID;
         $this->load->view('v-room', $data);
     }
 
@@ -49,7 +48,6 @@ class Master extends CI_Controller {
         $numb               = substr($lastID, 1, 4);
         $newID              = $numb + 1;
         $data['code']       = $newID;
-        $data['activeMenu'] = '3';
         $this->load->view('v-film-size', $data);
     }
 
