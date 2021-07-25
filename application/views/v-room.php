@@ -166,7 +166,7 @@
                     <section class="section">
                         <div class="card">
                             <div class="card-header">
-                                <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">Tambah Ruangan</button>
+                                <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalNew">Tambah Ruangan</button>
                             </div>
                             <div class="card-body">
                                 <table class="table table-striped" id="mytable">
@@ -184,7 +184,10 @@
                                         <tr>
                                             <td><?php echo $row->id;?></td>
                                             <td><?php echo $row->name;?></td>
-                                            <td>Edit | Hapus</td>
+                                            <td>
+                                                <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalEdit<?php echo $row->id;?>">Edit</button>
+                                                <button class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalDelete<?php echo $row->id;?>">Delete</button>
+                                            </td>
                                         </tr>
                                         <?php endforeach; ?>
                                     </tbody>
@@ -197,13 +200,13 @@
             </div>
         </div>
     </div>
-    <!-- New Room Dialog -->
+    <!-- New Data Modal -->
     <form action="<?php echo site_url('master/insert-room');?>" method="post">
-        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal fade" id="modalNew" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalCenterTitle">Tambah Ruangan </h5>
+                        <h5 class="modal-title" id="exampleModalCenterTitle">Tambah Data </h5>
                         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                             <i data-feather="x"></i>
                         </button>
@@ -218,11 +221,11 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
-                            <i class="bx bx-x d-block d-sm-none"></i>
+                            <i class="bi bi-x d-block d-sm-none"></i>
                             <span class="d-none d-sm-block">Batal</span>
                         </button>
                         <button type="submit" class="btn btn-primary ml-1">
-                            <i class="bx bx-check d-block d-sm-none"></i>
+                            <i class="bi bi-check d-block d-sm-none"></i>
                             <span class="d-none d-sm-block">Simpan</span>
                         </button>
                     </div>
@@ -230,6 +233,74 @@
             </div>
         </div>
     </form>
+    <!-- End -->
+    <!-- Edit Modal -->
+    <?php foreach ($dataRoom->result() as $row): ?>
+    <form action="<?php echo site_url('master/update-room');?>" method="post">
+        <div class="modal fade" id="modalEdit<?php echo $row->id;?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">Edit </h5>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                            <i data-feather="x"></i>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label style="font-weight:bold">Kode</label>
+                            <input type="text" name="code" readonly class="form-control" value="<?php echo $row->id;?>" required> <br>
+                            <label style="font-weight:bold">Nama Ruangan</label>
+                            <input type="text" name="name" pattern="[^';*\x22]+" class="form-control" value="<?php echo $row->name;?>" autocomplete="off" required> <br>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+                            <i class="bi bi-x d-block d-sm-none"></i>
+                            <span class="d-none d-sm-block">Batal</span>
+                        </button>
+                        <button type="submit" class="btn btn-primary ml-1">
+                            <i class="bi bi-check d-block d-sm-none"></i>
+                            <span class="d-none d-sm-block">Perbarui</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <?php endforeach;?>
+    <!-- End -->
+    <!-- Delete Modal -->
+    <?php foreach ($dataRoom->result() as $row): ?>
+    <form action="<?php echo site_url('master/delete-room');?>" method="post">
+        <div class="modal fade" id="modalDelete<?php echo $row->id;?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable" role="document">
+                <div class="modal-content">
+                    <div class="modal-header bg-danger">
+                        <h5 class="modal-title white" id="exampleModalCenterTitle">Peringatan </h5>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                            <i data-feather="x"></i>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="hidden" name="code" value="<?php echo $row->id;?>">
+                        <p>Ruangan adalah data Master. Anda ingin menghapus ruangan <b><?php echo $row->name;?></b> ?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+                            <i class="bi bi-x d-block d-sm-none"></i>
+                            <span class="d-none d-sm-block">Batal</span>
+                        </button>
+                        <button type="submit" class="btn btn-danger ml-1">
+                            <i class="bi bi-trash d-block d-sm-none"></i>
+                            <span class="d-none d-sm-block">Hapus</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <?php endforeach;?>
     <!-- End -->
     <script src="<?php echo base_url().'assets'?>/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
     <script src="<?php echo base_url().'assets'?>/js/bootstrap.bundle.min.js"></script>

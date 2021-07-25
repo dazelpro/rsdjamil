@@ -28,4 +28,17 @@ class Master extends CI_Controller {
 		redirect('master/room');
     }
 
+    function editRoom() {
+        $id     = $this->input->post('code');
+        $name   = $this->input->post('name');
+		$this->db->query("UPDATE table_room SET NAME = '$name' WHERE id = '$id'");
+		redirect('master/room');
+    }
+
+    function deleteRoom() {
+        $id     = $this->input->post('code');
+		$this->db->query("DELETE FROM table_room WHERE id = '$id'");
+		redirect('master/room');
+    }
+
 }
