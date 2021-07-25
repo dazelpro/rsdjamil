@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo base_url().'assets'?>/css/bootstrap.css">
-
+    <link rel="stylesheet" href="<?php echo base_url().'assets'?>/vendors/simple-datatables/style.css">
     <link rel="stylesheet" href="<?php echo base_url().'assets'?>/vendors/perfect-scrollbar/perfect-scrollbar.css">
     <link rel="stylesheet" href="<?php echo base_url().'assets'?>/vendors/bootstrap-icons/bootstrap-icons.css">
     <link rel="stylesheet" href="<?php echo base_url().'assets'?>/css/app.css">
@@ -34,20 +34,20 @@
                     <ul class="menu">
                         <li class="sidebar-title">Menu</li>
 
-                        <li class="sidebar-item active">
+                        <li class="sidebar-item">
                             <a href="<?php echo base_url().'dashboard'?>" class='sidebar-link'>
                                 <i class="bi bi-grid-fill"></i>
                                 <span>Dashboard</span>
                             </a>
                         </li>
 
-                        <li class="sidebar-item  has-sub">
+                        <li class="sidebar-item active has-sub">
                             <a href="#" class='sidebar-link'>
                                 <i class="bi bi-grid-1x2-fill"></i>
                                 <span>Master</span>
                             </a>
-                            <ul class="submenu ">
-                                <li class="submenu-item ">
+                            <ul class="submenu active">
+                                <li class="submenu-item active">
                                     <a href="<?php echo base_url().'master/room'?>">Ruangan</a>
                                 </li>
                                 <li class="submenu-item ">
@@ -159,12 +159,36 @@
                     <div class="page-title">
                         <div class="row">
                             <div class="col-12 col-md-6 order-md-1 order-last">
-                                <h3>Selamat datang, <?php echo $this->session->userdata('name');?></h3>
+                                <h3>Data Ruangan</h3>
                             </div>
                         </div>
                     </div>
                     <section class="section">
-                        
+                        <div class="card">
+                            <div class="card-header">
+                                <button class="btn btn-outline-primary">Tambah Ruangan</button>
+                            </div>
+                            <div class="card-body">
+                                <table class="table table-striped" id="mytable">
+                                    <thead>
+                                        <tr>
+                                            <th>Kode Ruangan</th>
+                                            <th>Nama Ruangan</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Graiden</td>
+                                            <td>vehicula.aliquet@semconsequat.co.uk</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Dale</td>
+                                            <td>fringilla.euismod.enim@quam.ca</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </section>
                 </div>
 
@@ -173,7 +197,11 @@
     </div>
     <script src="<?php echo base_url().'assets'?>/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
     <script src="<?php echo base_url().'assets'?>/js/bootstrap.bundle.min.js"></script>
-
+    <script src="<?php echo base_url().'assets'?>/vendors/simple-datatables/simple-datatables.js"></script>
+    <script>
+        let mytable = document.querySelector('#mytable');
+        let dataTable = new simpleDatatables.DataTable(mytable);
+    </script>
     <script src="<?php echo base_url().'assets'?>/js/main.js"></script>
 </body>
 

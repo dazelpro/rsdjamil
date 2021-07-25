@@ -12,7 +12,7 @@ class Master extends CI_Controller {
 	}
 
     function pageRoom() {
-        $this->load->view('v-dashboard');
+        $this->load->view('v-room');
     }
 
 }
