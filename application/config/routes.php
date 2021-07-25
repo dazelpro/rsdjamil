@@ -54,15 +54,15 @@ $route['default_controller'] = 'dashboard';
 // Login
 $route['login'] = 'authorization';
 // Master
-$route['master/room'] = 'master/pageRoom';
-$route['master/insert-room'] = 'master/insertRoom';
-$route['master/update-room'] = 'master/editRoom';
-$route['master/delete-room'] = 'master/deleteRoom';
+$route['master/room']               = 'master/pageRoom';
+$route['master/insert-room']        = 'master/insertRoom';
+$route['master/update-room']        = 'master/editRoom';
+$route['master/delete-room']        = 'master/deleteRoom';
 
-$route['master/film-size'] = 'master/pageRoom';
-// Master
-// $route['master/room'] = 'master/pageRoom';
-// $route['master/film-size'] = 'master/pageRoom';
+$route['master/film-size']          = 'master/pageFilmSize';
+$route['master/insert-film-size']   = 'master/insertFilmSize';
+$route['master/update-film-size']   = 'master/editFilmSize';
+$route['master/delete-film-size']   = 'master/deleteFilmSize';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
