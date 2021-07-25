@@ -166,7 +166,7 @@
                     <section class="section">
                         <div class="card">
                             <div class="card-header">
-                                <button class="btn btn-outline-primary">Tambah Ruangan</button>
+                                <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">Tambah Ruangan</button>
                             </div>
                             <div class="card-body">
                                 <table class="table table-striped" id="mytable">
@@ -174,17 +174,19 @@
                                         <tr>
                                             <th>Kode Ruangan</th>
                                             <th>Nama Ruangan</th>
+                                            <th>Action  </th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <?php 
+                                            foreach ($dataRoom->result() as $row):
+                                        ?>
                                         <tr>
-                                            <td>Graiden</td>
-                                            <td>vehicula.aliquet@semconsequat.co.uk</td>
+                                            <td><?php echo $row->id;?></td>
+                                            <td><?php echo $row->name;?></td>
+                                            <td>Edit | Hapus</td>
                                         </tr>
-                                        <tr>
-                                            <td>Dale</td>
-                                            <td>fringilla.euismod.enim@quam.ca</td>
-                                        </tr>
+                                        <?php endforeach; ?>
                                     </tbody>
                                 </table>
                             </div>
@@ -195,6 +197,40 @@
             </div>
         </div>
     </div>
+    <!-- New Room Dialog -->
+    <form action="<?php echo site_url('master/insert-room');?>" method="post">
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">Tambah Ruangan </h5>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                            <i data-feather="x"></i>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label style="font-weight:bold">Kode</label>
+                            <input type="text" name="code" readonly class="form-control" value="R<?php echo sprintf("%04s", $code)?>" required> <br>
+                            <label style="font-weight:bold">Nama Ruangan</label>
+                            <input type="text" name="name" pattern="[^';*\x22]+" class="form-control" autocomplete="off" required> <br>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+                            <i class="bx bx-x d-block d-sm-none"></i>
+                            <span class="d-none d-sm-block">Batal</span>
+                        </button>
+                        <button type="submit" class="btn btn-primary ml-1">
+                            <i class="bx bx-check d-block d-sm-none"></i>
+                            <span class="d-none d-sm-block">Simpan</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <!-- End -->
     <script src="<?php echo base_url().'assets'?>/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
     <script src="<?php echo base_url().'assets'?>/js/bootstrap.bundle.min.js"></script>
     <script src="<?php echo base_url().'assets'?>/vendors/simple-datatables/simple-datatables.js"></script>

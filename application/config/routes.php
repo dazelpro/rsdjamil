@@ -55,6 +55,9 @@ $route['default_controller'] = 'dashboard';
 $route['login'] = 'authorization';
 // Master
 $route['master/room'] = 'master/pageRoom';
+$route['master/insert-room'] = 'master/insertRoom';
+$route['master/update-room'] = 'master/pageRoom';
+$route['master/delete-room'] = 'master/pageRoom';
 $route['master/film-size'] = 'master/pageRoom';
 // Master
 // $route['master/room'] = 'master/pageRoom';
