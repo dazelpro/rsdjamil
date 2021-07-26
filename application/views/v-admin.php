@@ -152,7 +152,7 @@
                             <label style="font-weight:bold">Alamat</label>
                             <input type="text" name="address" pattern="[^';*\x22]+" class="form-control" autocomplete="off" required> <br>
                             <label style="font-weight:bold">Password</label>
-                            <input type="password" name="password" pattern="[^';*\x22]+" class="form-control" autocomplete="off" required> <br>
+                            <input type="password" name="password" class="form-control" autocomplete="off" required> <br>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -213,6 +213,41 @@
                         <button type="submit" class="btn btn-primary ml-1">
                             <i class="bi bi-check d-block d-sm-none"></i>
                             <span class="d-none d-sm-block">Perbarui</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <?php endforeach;?>
+    <!-- End -->
+    <!-- Reset Password Modal -->
+    <?php foreach ($dataAdmin->result() as $row): ?>
+    <form action="<?php echo site_url('account/reset-pass-admin');?>" method="post">
+        <div class="modal fade" id="modalResetPass<?php echo $row->id;?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">Reset Password </h5>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                            <i data-feather="x"></i>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <input type="hidden" name="code" value="<?php echo $row->id;?>">
+                            <label style="font-weight:bold">Buat Password Baru</label>
+                            <input type="password" name="password" class="form-control" autocomplete="off" required> <br>                            
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+                            <i class="bi bi-x d-block d-sm-none"></i>
+                            <span class="d-none d-sm-block">Batal</span>
+                        </button>
+                        <button type="submit" class="btn btn-danger ml-1">
+                            <i class="bi bi-check d-block d-sm-none"></i>
+                            <span class="d-none d-sm-block">Reset</span>
                         </button>
                     </div>
                 </div>

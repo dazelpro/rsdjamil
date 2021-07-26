@@ -39,6 +39,13 @@ class Account extends CI_Controller {
 		redirect('account/admin');
     }
 
+    function resetPasswordAdmin() {
+        $id                     = $this->input->post('code');
+        $password               = $this->input->post('password');
+		$this->db->query("UPDATE table_account SET password = md5('$password')  WHERE id = '$id'");
+		redirect('account/admin');
+    }
+
     function deleteAdmin() {
         $id                     = $this->input->post('code');
 		$this->db->query("DELETE FROM table_account WHERE id = '$id'");

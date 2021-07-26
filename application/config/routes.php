@@ -69,6 +69,7 @@ $route['master/delete-film-size']   = 'master/deleteFilmSize';
 $route['account/admin']             = 'account/pageAdmin';
 $route['account/insert-admin']      = 'account/insertAdmin';
 $route['account/update-admin']      = 'account/editAdmin';
+$route['account/reset-pass-admin']  = 'account/resetPasswordAdmin';
 $route['account/delete-admin']      = 'account/deleteAdmin';
 
 $route['404_override'] = '';
