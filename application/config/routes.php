@@ -63,6 +63,13 @@ $route['master/film-size']          = 'master/pageFilmSize';
 $route['master/insert-film-size']   = 'master/insertFilmSize';
 $route['master/update-film-size']   = 'master/editFilmSize';
 $route['master/delete-film-size']   = 'master/deleteFilmSize';
+// Hendling
+
+// Account
+$route['account/admin']             = 'account/pageAdmin';
+$route['account/insert-admin']      = 'account/insertAdmin';
+$route['account/update-admin']      = 'account/editAdmin';
+$route['account/delete-admin']      = 'account/deleteAdmin';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

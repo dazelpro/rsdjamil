@@ -11,34 +11,38 @@ class Account extends CI_Controller {
 		};
 	}
 
-    function pageRoom() {
-        $data['dataRoom']   = $this->db->query("SELECT * FROM table_room");
-        $query              = $this->db->query("SELECT MAX(id) AS newCode FROM table_room")->row_array();
-        $lastID             = $query['newCode'];
-        $numb               = substr($lastID, 1, 4);
-        $newID              = $numb + 1;
-        $data['code']       = $newID;
-        $this->load->view('v-room', $data);
+    function pageAdmin() {
+        $data['dataAdmin']      = $this->db->query("SELECT * FROM table_account WHERE role = '0'");
+        $data['activeMenu']     = '8';
+        $this->load->view('v-admin', $data);
     }
 
-    function insertRoom() {
-        $id     = $this->input->post('code');
-		$name   = $this->input->post('name');
-		$this->db->query("INSERT INTO table_room (id,name) VALUES ('$id','$name')");
-		redirect('master/room');
+    function insertAdmin() {
+		$name                   = $this->input->post('name');
+		$email                  = $this->input->post('email');
+		$phone                  = $this->input->post('phone');
+		$address                = $this->input->post('address');
+		$password               = $this->input->post('password');
+		$role                   = '0';
+		$this->db->query("INSERT INTO table_account (name,phone,address,email,password,role) VALUES ('$name','$phone','$address','$email',md5('$password'),'$role')");
+		redirect('account/admin');
     }
 
-    function editRoom() {
-        $id     = $this->input->post('code');
-        $name   = $this->input->post('name');
-		$this->db->query("UPDATE table_room SET NAME = '$name' WHERE id = '$id'");
-		redirect('master/room');
+    function editAdmin() {
+        $id                     = $this->input->post('code');
+        $name                   = $this->input->post('name');
+        $email                  = $this->input->post('email');
+        $phone                  = $this->input->post('phone');
+        $address                = $this->input->post('address');
+        $status                 = $this->input->post('status');
+		$this->db->query("UPDATE table_account SET name = '$name', email = '$email', phone = '$phone', address = '$address', status = '$status'  WHERE id = '$id'");
+		redirect('account/admin');
     }
 
-    function deleteRoom() {
-        $id     = $this->input->post('code');
-		$this->db->query("DELETE FROM table_room WHERE id = '$id'");
-		redirect('master/room');
+    function deleteAdmin() {
+        $id                     = $this->input->post('code');
+		$this->db->query("DELETE FROM table_account WHERE id = '$id'");
+		redirect('account/admin');
     }
 
     function pageFilmSize() {

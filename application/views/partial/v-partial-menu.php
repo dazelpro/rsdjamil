@@ -45,20 +45,20 @@
             </ul>
         </li>
         <!-- 8, 9, 10 -->
-        <li class="sidebar-item  has-sub">
+        <li class="sidebar-item <?php if($activeMenu == 8 || $activeMenu == 9 || $activeMenu == 10):?> active <?php endif;?> has-sub">
             <a href="#" class='sidebar-link'>
                 <i class="bi bi-person-badge-fill"></i>
                 <span>Akun</span>
             </a>
-            <ul class="submenu ">
-                <li class="submenu-item ">
-                    <a href="extra-component-avatar.html">Admin Radiologi</a>
+            <ul class="submenu <?php if($activeMenu == 8 || $activeMenu == 9 || $activeMenu == 10):?> active <?php endif;?>">
+                <li class="submenu-item <?php if($activeMenu == 8):?> active <?php endif;?>">
+                    <a href="<?php echo base_url().'account/admin'?>">Admin Radiologi</a>
                 </li>
-                <li class="submenu-item ">
-                    <a href="extra-component-avatar.html">Dokter Pengirim</a>
+                <li class="submenu-item <?php if($activeMenu == 9):?> active <?php endif;?>">
+                    <a href="<?php echo base_url().'account/doctor'?>">Dokter Pengirim</a>
                 </li>
-                <li class="submenu-item ">
-                    <a href="extra-component-avatar.html">Dokter Radiologi</a>
+                <li class="submenu-item <?php if($activeMenu == 10):?> active <?php endif;?>">
+                    <a href="<?php echo base_url().'account/radiology-doctor'?>">Dokter Radiologi</a>
                 </li>
             </ul>
         </li>
