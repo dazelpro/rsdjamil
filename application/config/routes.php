@@ -71,6 +71,11 @@ $route['account/insert-admin']      = 'account/insertAdmin';
 $route['account/update-admin']      = 'account/editAdmin';
 $route['account/reset-pass-admin']  = 'account/resetPasswordAdmin';
 $route['account/delete-admin']      = 'account/deleteAdmin';
+$route['account/doctor']            = 'account/pageDoctor';
+$route['account/insert-doctor']     = 'account/insertDoctor';
+$route['account/update-doctor']     = 'account/editDoctor';
+$route['account/reset-pass-doctor'] = 'account/resetPasswordDoctor';
+$route['account/delete-doctor']     = 'account/deleteDoctor';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

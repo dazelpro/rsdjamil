@@ -52,34 +52,45 @@ class Account extends CI_Controller {
 		redirect('account/admin');
     }
 
-    function pageFilmSize() {
-        $data['dataRoom']   = $this->db->query("SELECT * FROM table_film");
-        $query              = $this->db->query("SELECT MAX(id) AS newCode FROM table_film")->row_array();
-        $lastID             = $query['newCode'];
-        $numb               = substr($lastID, 1, 4);
-        $newID              = $numb + 1;
-        $data['code']       = $newID;
-        $this->load->view('v-film-size', $data);
+    function pageDoctor() {
+        $data['dataDoctor']      = $this->db->query("SELECT * FROM table_account WHERE role = '1'");
+        $data['activeMenu']     = '9';
+        $this->load->view('v-doctor', $data);
     }
 
-    function insertFilmSize() {
-        $id     = $this->input->post('code');
-		$size   = $this->input->post('size');
-		$this->db->query("INSERT INTO table_film (id,size) VALUES ('$id','$size')");
-		redirect('master/film-size');
+    function insertDoctor() {
+		$name                   = $this->input->post('name');
+		$email                  = $this->input->post('email');
+		$phone                  = $this->input->post('phone');
+		$address                = $this->input->post('address');
+		$password               = $this->input->post('password');
+		$role                   = '1';
+		$this->db->query("INSERT INTO table_account (name,phone,address,email,password,role) VALUES ('$name','$phone','$address','$email',md5('$password'),'$role')");
+		redirect('account/doctor');
     }
 
-    function editFilmSize() {
-        $id       = $this->input->post('code');
-        $size       = $this->input->post('size');
-		$this->db->query("UPDATE table_film SET size = '$size' WHERE id = '$id'");
-		redirect('master/film-size');
+    function editDoctor() {
+        $id                     = $this->input->post('code');
+        $name                   = $this->input->post('name');
+        $email                  = $this->input->post('email');
+        $phone                  = $this->input->post('phone');
+        $address                = $this->input->post('address');
+        $status                 = $this->input->post('status');
+		$this->db->query("UPDATE table_account SET name = '$name', email = '$email', phone = '$phone', address = '$address', status = '$status'  WHERE id = '$id'");
+		redirect('account/doctor');
     }
 
-    function deleteFilmSize() {
-        $id     = $this->input->post('code');
-		$this->db->query("DELETE FROM table_film WHERE id = '$id'");
-		redirect('master/film-size');
+    function resetPasswordDoctor() {
+        $id                     = $this->input->post('code');
+        $password               = $this->input->post('password');
+		$this->db->query("UPDATE table_account SET password = md5('$password')  WHERE id = '$id'");
+		redirect('account/doctor');
+    }
+
+    function deleteDoctor() {
+        $id                     = $this->input->post('code');
+		$this->db->query("DELETE FROM table_account WHERE id = '$id'");
+		redirect('account/doctor');
     }
 
 }
