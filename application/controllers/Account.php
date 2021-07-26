@@ -93,4 +93,45 @@ class Account extends CI_Controller {
 		redirect('account/doctor');
     }
 
+    function pageRadiologyDoctor() {
+        $data['dataRadiologyDoctor']    = $this->db->query("SELECT * FROM table_account WHERE role = '2'");
+        $data['activeMenu']             = '10';
+        $this->load->view('v-radiology-doctor', $data);
+    }
+
+    function insertRadiologyDoctor() {
+		$name                   = $this->input->post('name');
+		$email                  = $this->input->post('email');
+		$phone                  = $this->input->post('phone');
+		$address                = $this->input->post('address');
+		$password               = $this->input->post('password');
+		$role                   = '2';
+		$this->db->query("INSERT INTO table_account (name,phone,address,email,password,role) VALUES ('$name','$phone','$address','$email',md5('$password'),'$role')");
+		redirect('account/radiology-doctor');
+    }
+
+    function editRadiologyDoctor() {
+        $id                     = $this->input->post('code');
+        $name                   = $this->input->post('name');
+        $email                  = $this->input->post('email');
+        $phone                  = $this->input->post('phone');
+        $address                = $this->input->post('address');
+        $status                 = $this->input->post('status');
+		$this->db->query("UPDATE table_account SET name = '$name', email = '$email', phone = '$phone', address = '$address', status = '$status'  WHERE id = '$id'");
+		redirect('account/radiology-doctor');
+    }
+
+    function resetPasswordRadiologyDoctor() {
+        $id                     = $this->input->post('code');
+        $password               = $this->input->post('password');
+		$this->db->query("UPDATE table_account SET password = md5('$password')  WHERE id = '$id'");
+		redirect('account/radiology-doctor');
+    }
+
+    function deleteRadiologyDoctor() {
+        $id                     = $this->input->post('code');
+		$this->db->query("DELETE FROM table_account WHERE id = '$id'");
+		redirect('account/radiology-doctor');
+    }
+
 }

@@ -71,11 +71,18 @@ $route['account/insert-admin']      = 'account/insertAdmin';
 $route['account/update-admin']      = 'account/editAdmin';
 $route['account/reset-pass-admin']  = 'account/resetPasswordAdmin';
 $route['account/delete-admin']      = 'account/deleteAdmin';
+
 $route['account/doctor']            = 'account/pageDoctor';
 $route['account/insert-doctor']     = 'account/insertDoctor';
 $route['account/update-doctor']     = 'account/editDoctor';
 $route['account/reset-pass-doctor'] = 'account/resetPasswordDoctor';
 $route['account/delete-doctor']     = 'account/deleteDoctor';
+
+$route['account/radiology-doctor']            = 'account/pageRadiologyDoctor';
+$route['account/insert-radiology-doctor']     = 'account/insertRadiologyDoctor';
+$route['account/update-radiology-doctor']     = 'account/editRadiologyDoctor';
+$route['account/reset-pass-radiology-doctor'] = 'account/resetPasswordRadiologyDoctor';
+$route['account/delete-radiology-doctor']     = 'account/deleteRadiologyDoctor';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
