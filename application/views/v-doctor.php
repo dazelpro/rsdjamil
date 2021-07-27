@@ -143,6 +143,7 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
+                            <input type="hidden" name="code" value="D<?php echo sprintf("%04s", $code)?>">
                             <label style="font-weight:bold">Nama</label>
                             <input type="text" name="name" pattern="[^';*\x22]+" class="form-control" autocomplete="off" required> <br>
                             <label style="font-weight:bold">Email</label>
