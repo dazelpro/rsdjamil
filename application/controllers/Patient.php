@@ -19,6 +19,7 @@ class Patient extends CI_Controller {
 
     function pageInsertPatient() {
         $data['dataPatient']    = $this->db->query("SELECT * FROM table_patient");
+        $data['dataRoom']       = $this->db->query("SELECT * FROM table_room");
         $data['dataDoctor']     = $this->db->query("SELECT * FROM table_account WHERE role = '1'");
         $data['dataDoctorRad']  = $this->db->query("SELECT * FROM table_account WHERE role = '2'");
         $query                  = $this->db->query("SELECT MAX(mr_number) AS newCode FROM table_patient")->row_array();
@@ -28,6 +29,19 @@ class Patient extends CI_Controller {
         $data['code']           = $newID;
         $data['activeMenu']     = '4';
         $this->load->view('patient/v-add-patient', $data);
+    }
+
+    function insertPatient() {
+        $mr                     = $this->input->post('mr');
+		$name                   = $this->input->post('name');
+		$place                  = $this->input->post('place');
+		$birth                  = $this->input->post('birth');
+		$gender                 = $this->input->post('gender');
+		$room                   = $this->input->post('room');
+		$doctor                 = $this->input->post('doctor');
+		$doctorRad              = $this->input->post('doctorRad');
+		$this->db->query("INSERT INTO table_patient VALUES ('$mr','$name','$place','$birth','$gender','$room','$doctor','$doctorRad')");
+		redirect('patient');
     }
 
 }

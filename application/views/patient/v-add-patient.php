@@ -84,85 +84,88 @@
                             </div>
                         </div>
                     </div>
-                    <section class="section">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="disabledInput">No. MR</label>
-                                            <input type="text" name="mr" value="MR<?php echo sprintf("%04s", $code)?>" class="form-control" id="disabledInput" readonly>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="basicInput">Nama Pasien</label>
-                                            <input type="text" name="name" class="form-control" autocomplete="off" id="basicInput">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="basicInput">Tempat Lahir</label>
-                                            <input type="text" name="name" class="form-control" autocomplete="off" id="basicInput">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="basicInput">Tanggal Lahir</label>
-                                            <input type="text" name="name" class="form-control" autocomplete="off" id="basicInput">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="basicInput">Jenis Kelamin</label>
-                                        </div> 
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                                id="flexRadioDefault2" checked>
-                                            <label class="form-check-label" for="flexRadioDefault2">
-                                                Pria
-                                            </label>
-                                        </div>   
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                                id="flexRadioDefault1">
-                                            <label class="form-check-label" for="flexRadioDefault1">
-                                                Wanita
-                                            </label>
-                                        </div>                                    
-                                    </div>
-                                    <div class="col-md-6">                                        
-                                        <div class="form-group">
-                                            <label for="basicInput">Asal Ruangan</label>
+                    <form action="<?php echo site_url('patient/insert-patient');?>" method="POST">
+                        <section class="section">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
                                             <div class="form-group">
-                                                <select class="form-select" id="basicSelect">
-                                                    <option>IT</option>
-                                                    <option>Blade Runner</option>
-                                                    <option>Thor Ragnarok</option>
-                                                </select>
+                                                <label for="disabledInput">No. MR</label>
+                                                <input type="text" name="mr" value="MR<?php echo sprintf("%04s", $code)?>" class="form-control" id="disabledInput" readonly required>
                                             </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="basicInput">Dokter Pengantar</label>
                                             <div class="form-group">
-                                                <select class="form-select" id="basicSelect">
-                                                    <option>IT</option>
-                                                    <option>Blade Runner</option>
-                                                    <option>Thor Ragnarok</option>
-                                                </select>
+                                                <label for="basicInput">Nama Pasien</label>
+                                                <input type="text" name="name" class="form-control" autocomplete="off" id="basicInput" required>
                                             </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="basicInput">Dokter Radiologi</label>
                                             <div class="form-group">
-                                                <select class="form-select" id="basicSelect">
-                                                    <option>IT</option>
-                                                    <option>Blade Runner</option>
-                                                    <option>Thor Ragnarok</option>
-                                                </select>
+                                                <label for="basicInput">Tempat Lahir</label>
+                                                <input type="text" name="place" class="form-control" autocomplete="off" id="basicInput" required>
                                             </div>
+                                            <div class="form-group">
+                                                <label for="basicInput">Tanggal Lahir</label>
+                                                <input type="date" name="birth" class="form-control" autocomplete="off" id="basicInput" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="basicInput">Jenis Kelamin</label>
+                                            </div> 
+                                            <div class="form-check">
+                                                <input name="gender" value="Pria" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" required>
+                                                <label class="form-check-label" for="flexRadioDefault2">
+                                                    Pria
+                                                </label>
+                                            </div>   
+                                            <div class="form-check">
+                                                <input name="gender" value="Wanita" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" required>
+                                                <label class="form-check-label" for="flexRadioDefault1">
+                                                    Wanita
+                                                </label>
+                                            </div>                                    
                                         </div>
-                                        <div class="form-group">
-                                            <a href="" class="btn btn-primary" style="float: right; margin-left: 10px;">Simpan Data</a>
-                                            <a href="" class="btn btn-outline-danger" style="float: right; margin-left: 10px;">Batal</a> 
+                                        <div class="col-md-6">                                        
+                                            <div class="form-group">
+                                                <label for="basicInput">Asal Ruangan</label>
+                                                <div class="form-group">
+                                                    <select class="form-select" id="basicSelect" name="room" required>
+                                                        <option disabled selected value>Pilih ruangan *</option>
+                                                        <?php foreach ($dataRoom->result() as $i) : ?>
+                                                            <option value="<?php echo $i->id;?>"><?php echo $i->name;?></option>
+                                                        <?php endforeach;?>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="basicInput">Dokter Pengantar</label>
+                                                <div class="form-group">
+                                                    <select class="form-select" id="basicSelect" name="doctor" required>
+                                                        <option disabled selected value>Pilih Dokter Pengantar *</option>
+                                                        <?php foreach ($dataDoctor->result() as $i) : ?>
+                                                            <option value="<?php echo $i->id;?>"><?php echo $i->name;?></option>
+                                                        <?php endforeach;?>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="basicInput">Dokter Radiologi</label>
+                                                <div class="form-group">
+                                                    <select class="form-select" id="basicSelect" name="doctorRad" required>
+                                                        <option disabled selected value>Pilih Dokter Radiologi *</option>
+                                                        <?php foreach ($dataDoctorRad->result() as $i) : ?>
+                                                            <option value="<?php echo $i->id;?>"><?php echo $i->name;?></option>
+                                                        <?php endforeach;?>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <button type="submit" class="btn btn-primary" style="float: right; margin-left: 10px;">Simpan Data</button>
+                                                <a href="<?php echo base_url().'patient'?>" class="btn btn-outline-danger" style="float: right; margin-left: 10px;">Batal</a> 
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </section>
+                        </section>
+                    </form>
                 </div>
 
             </div>

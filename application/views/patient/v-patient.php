@@ -107,10 +107,11 @@
                                         <tr>
                                             <td><?php echo $row->mr_number;?></td>
                                             <td><?php echo $row->name;?></td>
+                                            <td><?php echo $row->doctor;?></td>
                                             <td>
-                                                <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalEdit<?php echo $row->id;?>">Edit</button>
-                                                <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalEdit<?php echo $row->id;?>">Detail</button>
-                                                <button class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalDelete<?php echo $row->id;?>">Delete</button>
+                                                <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal">Edit</button>
+                                                <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal">Detail</button>
+                                                <button class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalDelete<?php echo $row->mr_number;?>">Delete</button>
                                             </td>
                                         </tr>
                                         <?php endforeach; ?>
@@ -127,18 +128,18 @@
     <!-- Delete Modal -->
     <?php foreach ($dataPatient->result() as $row): ?>
     <form action="<?php echo site_url('master/delete-room');?>" method="post">
-        <div class="modal fade" id="modalDelete<?php echo $row->id;?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal fade" id="modalDelete<?php echo $row->mr_number;?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable" role="document">
                 <div class="modal-content">
                     <div class="modal-header bg-danger">
                         <h5 class="modal-title white" id="exampleModalCenterTitle">Peringatan </h5>
-                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <button type="button" class="close white" data-bs-dismiss="modal" aria-label="Close">
                             <i data-feather="x"></i>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <input type="hidden" name="code" value="<?php echo $row->id;?>">
-                        <p>Ruangan adalah data Master. Anda ingin menghapus ruangan <b><?php echo $row->name;?></b> ?</p>
+                        <input type="hidden" name="code" value="<?php echo $row->mr_number;?>">
+                        <p>Anda ingin menghapus pasien atas nama <b><?php echo $row->name;?></b> ?</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">

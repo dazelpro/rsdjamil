@@ -66,8 +66,9 @@ $route['master/delete-film-size']   = 'master/deleteFilmSize';
 // Patient
 $route['patient']                   = 'patient/pagePatient';
 $route['patient/new']               = 'patient/pageInsertPatient';
+$route['patient/insert-patient']    = 'patient/insertPatient';
 // Hendling
-$route['handling/patient']          = 'handling/pagePatient';
+// $route['handling/patient']          = 'handling/pagePatient';
 // Account
 $route['account/admin']             = 'account/pageAdmin';
 $route['account/insert-admin']      = 'account/insertAdmin';
