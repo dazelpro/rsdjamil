@@ -111,8 +111,8 @@
                                             <td><?php echo $row->doctor_name;?></td>
                                             <td><?php echo $row->doctor_rad;?></td>
                                             <td>
-                                                <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal">Edit</button>
-                                                <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal">Detail</button>
+                                                <a href="<?php echo base_url().'patient/edit/'.$row->mr_number?>" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal">Edit</a>
+                                                <a href="<?php echo base_url().'patient/detail/'.$row->mr_number?>" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal">Detail</a>
                                                 <button class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalDelete<?php echo $row->mr_number;?>">Delete</button>
                                             </td>
                                         </tr>
@@ -129,7 +129,7 @@
     </div>
     <!-- Delete Modal -->
     <?php foreach ($dataPatient->result() as $row): ?>
-    <form action="<?php echo site_url('master/delete-room');?>" method="post">
+    <form action="<?php echo site_url('patient/delete-patient');?>" method="post">
         <div class="modal fade" id="modalDelete<?php echo $row->mr_number;?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable" role="document">
                 <div class="modal-content">

@@ -30,6 +30,15 @@ class Patient extends CI_Controller {
         $this->load->view('patient/v-add-patient', $data);
     }
 
+    function pageEditPatient($id) {
+        $data['dataPatient']    = $this->db->query("SELECT * from table_patient WHERE mr_number = '$id'");
+        $data['dataRoom']       = $this->db->query("SELECT * FROM table_room");
+        $data['dataDoctor']     = $this->db->query("SELECT * FROM table_doctor");
+        $data['dataDoctorRad']  = $this->db->query("SELECT * FROM table_doctor_radiology");
+        $data['activeMenu']     = '4';
+        $this->load->view('patient/v-edit-patient', $data);
+    }
+
     function insertPatient() {
         $mr                     = $this->input->post('mr');
 		$name                   = $this->input->post('name');
@@ -40,6 +49,25 @@ class Patient extends CI_Controller {
 		$doctor                 = $this->input->post('doctor');
 		$doctorRad              = $this->input->post('doctorRad');
 		$this->db->query("INSERT INTO table_patient VALUES ('$mr','$name','$place','$birth','$gender','$room','$doctor','$doctorRad')");
+		redirect('patient');
+    }
+
+    function updatePatient() {
+        $mr                     = $this->input->post('mr');
+		$name                   = $this->input->post('name');
+		$place                  = $this->input->post('place');
+		$birth                  = $this->input->post('birth');
+		$gender                 = $this->input->post('gender');
+		$room                   = $this->input->post('room');
+		$doctor                 = $this->input->post('doctor');
+		$doctorRad              = $this->input->post('doctorRad');
+		$this->db->query("UPDATE table_patient SET NAME = '$name', place_of_birth = '$place', date_of_birth = '$birth', gender = '$gender', room = '$room', doctor = '$doctor', radiology_doctor = '$doctorRad' WHERE mr_number = '$mr'");
+		redirect('patient');
+    }
+
+    function deletePatient() {
+        $id                     = $this->input->post('code');
+		$this->db->query("DELETE FROM table_patient WHERE mr_number = '$id'");
 		redirect('patient');
     }
 
