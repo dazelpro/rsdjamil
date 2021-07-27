@@ -23,24 +23,28 @@
                 </li>
             </ul>
         </li>
-        <!-- 4, 5, 6, 7 -->
-        <li class="sidebar-item  has-sub">
+        <!-- 4 -->
+        <li class="sidebar-item <?php if($activeMenu == 4):?> active <?php endif;?>">
+            <a href="<?php echo base_url().'patient'?>" class='sidebar-link'>
+                <i class="bi bi-person-badge-fill"></i>
+                <span>Pasien</span>
+            </a>
+        </li>
+        <!-- 5, 6, 7 -->
+        <li class="sidebar-item <?php if($activeMenu == 5 || $activeMenu == 6 || $activeMenu == 7):?> active <?php endif;?> has-sub">
             <a href="#" class='sidebar-link'>
                 <i class="bi bi-file-earmark-medical-fill"></i>
                 <span>Tindakan</span>
             </a>
-            <ul class="submenu ">
-                <li class="submenu-item ">
-                    <a href="extra-component-avatar.html">Pasien</a>
+            <ul class="submenu <?php if($activeMenu == 5 || $activeMenu == 6 || $activeMenu == 7):?> active <?php endif;?>">
+                <li class="submenu-item <?php if($activeMenu == 5):?> active <?php endif;?>">
+                    <a href="<?php echo base_url().'handling/patient'?>">Tindakan</a>
                 </li>
-                <li class="submenu-item ">
-                    <a href="extra-component-avatar.html">Tindakan</a>
+                <li class="submenu-item <?php if($activeMenu == 6):?> active <?php endif;?>">
+                    <a href="<?php echo base_url().'handling/patient'?>">Citra Radiologi</a>
                 </li>
-                <li class="submenu-item ">
-                    <a href="extra-component-avatar.html">Citra Radiologi</a>
-                </li>
-                <li class="submenu-item ">
-                    <a href="extra-component-avatar.html">Bacaan Citra</a>
+                <li class="submenu-item <?php if($activeMenu == 7):?> active <?php endif;?>">
+                    <a href="<?php echo base_url().'handling/patient'?>">Bacaan Citra</a>
                 </li>
             </ul>
         </li>

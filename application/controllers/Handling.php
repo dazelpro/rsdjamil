@@ -11,64 +11,8 @@ class Handling extends CI_Controller {
 		};
 	}
 
-    function pageRoom() {
-        $data['dataRoom']   = $this->db->query("SELECT * FROM table_room");
-        $query              = $this->db->query("SELECT MAX(id) AS newCode FROM table_room")->row_array();
-        $lastID             = $query['newCode'];
-        $numb               = substr($lastID, 1, 4);
-        $newID              = $numb + 1;
-        $data['code']       = $newID;
-        $this->load->view('v-room', $data);
-    }
-
-    function insertRoom() {
-        $id     = $this->input->post('code');
-		$name   = $this->input->post('name');
-		$this->db->query("INSERT INTO table_room (id,name) VALUES ('$id','$name')");
-		redirect('master/room');
-    }
-
-    function editRoom() {
-        $id     = $this->input->post('code');
-        $name   = $this->input->post('name');
-		$this->db->query("UPDATE table_room SET NAME = '$name' WHERE id = '$id'");
-		redirect('master/room');
-    }
-
-    function deleteRoom() {
-        $id     = $this->input->post('code');
-		$this->db->query("DELETE FROM table_room WHERE id = '$id'");
-		redirect('master/room');
-    }
-
-    function pageFilmSize() {
-        $data['dataRoom']   = $this->db->query("SELECT * FROM table_film");
-        $query              = $this->db->query("SELECT MAX(id) AS newCode FROM table_film")->row_array();
-        $lastID             = $query['newCode'];
-        $numb               = substr($lastID, 1, 4);
-        $newID              = $numb + 1;
-        $data['code']       = $newID;
-        $this->load->view('v-film-size', $data);
-    }
-
-    function insertFilmSize() {
-        $id     = $this->input->post('code');
-		$size   = $this->input->post('size');
-		$this->db->query("INSERT INTO table_film (id,size) VALUES ('$id','$size')");
-		redirect('master/film-size');
-    }
-
-    function editFilmSize() {
-        $id       = $this->input->post('code');
-        $size       = $this->input->post('size');
-		$this->db->query("UPDATE table_film SET size = '$size' WHERE id = '$id'");
-		redirect('master/film-size');
-    }
-
-    function deleteFilmSize() {
-        $id     = $this->input->post('code');
-		$this->db->query("DELETE FROM table_film WHERE id = '$id'");
-		redirect('master/film-size');
+    function pagePatient() {
+        
     }
 
 }
