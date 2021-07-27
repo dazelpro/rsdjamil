@@ -12,16 +12,15 @@ class Patient extends CI_Controller {
 	}
 
     function pagePatient() {
-        $data['dataPatient']    = $this->db->query("SELECT * FROM table_patient");
+        $data['dataPatient']    = $this->db->query("SELECT table_patient.`mr_number`, table_patient.`name`, table_doctor.`name` AS doctor_name, table_doctor_radiology.`name` AS doctor_rad FROM table_patient JOIN table_doctor ON table_patient.`doctor` = table_doctor.`id` JOIN table_doctor_radiology ON table_doctor_radiology.`id` = table_patient.`radiology_doctor`");
         $data['activeMenu']     = '4';
         $this->load->view('patient/v-patient', $data);
     }
 
     function pageInsertPatient() {
-        $data['dataPatient']    = $this->db->query("SELECT * FROM table_patient");
         $data['dataRoom']       = $this->db->query("SELECT * FROM table_room");
-        $data['dataDoctor']     = $this->db->query("SELECT * FROM table_account WHERE role = '1'");
-        $data['dataDoctorRad']  = $this->db->query("SELECT * FROM table_account WHERE role = '2'");
+        $data['dataDoctor']     = $this->db->query("SELECT * FROM table_doctor");
+        $data['dataDoctorRad']  = $this->db->query("SELECT * FROM table_doctor_radiology");
         $query                  = $this->db->query("SELECT MAX(mr_number) AS newCode FROM table_patient")->row_array();
         $lastID                 = $query['newCode'];
         $numb                   = substr($lastID, 2, 4);

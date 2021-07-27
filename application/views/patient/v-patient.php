@@ -97,6 +97,7 @@
                                             <th>MR</th>
                                             <th>Nama</th>
                                             <th>Dokter Pengirim</th>
+                                            <th>Dokter Radiology</th>
                                             <th>Action  </th>
                                         </tr>
                                     </thead>
@@ -107,7 +108,8 @@
                                         <tr>
                                             <td><?php echo $row->mr_number;?></td>
                                             <td><?php echo $row->name;?></td>
-                                            <td><?php echo $row->doctor;?></td>
+                                            <td><?php echo $row->doctor_name;?></td>
+                                            <td><?php echo $row->doctor_rad;?></td>
                                             <td>
                                                 <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal">Edit</button>
                                                 <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal">Detail</button>
