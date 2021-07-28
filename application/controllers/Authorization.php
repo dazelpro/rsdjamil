@@ -33,7 +33,7 @@ class Authorization extends CI_Controller {
                         $id=$x['id'];
                         if ($x['role']=='0') { //Admin Radiologi
                             $name = $x['name'];
-                            $this->session->set_userdata('access','Admin Radiologi');
+                            $this->session->set_userdata('access','0');
                             $this->session->set_userdata('id',$id);
                             $this->session->set_userdata('name',$name);
                             redirect('dashboard');
@@ -75,7 +75,7 @@ class Authorization extends CI_Controller {
                         // echo $email;
                         if ($x['role']=='1') { //Dokter Pengantar
                             $name = $x['name'];
-                            $this->session->set_userdata('access','Dokter Pengantar');
+                            $this->session->set_userdata('access','1');
                             $this->session->set_userdata('id',$id);
                             $this->session->set_userdata('name',$name);
                             redirect('dashboard');
@@ -117,7 +117,7 @@ class Authorization extends CI_Controller {
                         $id=$x['id'];
                         if ($x['role']=='2') { //Dokter Radiologi
                             $name = $x['name'];
-                            $this->session->set_userdata('access','Dokter Radiologi');
+                            $this->session->set_userdata('access','2');
                             $this->session->set_userdata('id',$id);
                             $this->session->set_userdata('name',$name);
                             redirect('dashboard');

@@ -28,10 +28,10 @@ CREATE TABLE `table_account` (
 /*Data for the table `table_account` */
 
 insert  into `table_account`(`id`,`email`,`password`,`role`,`status`,`create_at`) values 
-('R0002','indra@gmail.com','21232f297a57a5a743894a0e4a801fc3',1,'1','2021-07-26 15:01:26'),
-('R0001','ratih@gmail.com','21232f297a57a5a743894a0e4a801fc3',1,'1','2021-07-26 15:04:12'),
-('D0001','ikhsan@gmail.com','21232f297a57a5a743894a0e4a801fc3',2,'1','2021-07-26 15:12:29'),
-('D0002','dani_ramadhan@gmail.com','21232f297a57a5a743894a0e4a801fc3',2,'1','2021-07-26 15:14:10'),
+('R0002','indra@gmail.com','21232f297a57a5a743894a0e4a801fc3',2,'1','2021-07-26 15:01:26'),
+('R0001','ratih@gmail.com','21232f297a57a5a743894a0e4a801fc3',2,'1','2021-07-26 15:04:12'),
+('D0001','ikhsan@gmail.com','21232f297a57a5a743894a0e4a801fc3',1,'1','2021-07-26 15:12:29'),
+('D0002','dani_ramadhan@gmail.com','21232f297a57a5a743894a0e4a801fc3',1,'1','2021-07-26 15:14:10'),
 ('A0001','admin@gmail.com','21232f297a57a5a743894a0e4a801fc3',0,'1','2021-07-18 21:01:32'),
 ('A0002','balmond@gmail.com','21232f297a57a5a743894a0e4a801fc3',0,'1','2021-07-26 12:22:02');
 

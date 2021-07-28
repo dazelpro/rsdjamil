@@ -98,7 +98,9 @@
                                             <th>Nama</th>
                                             <th>Dokter Pengirim</th>
                                             <th>Dokter Radiology</th>
-                                            <th>Action  </th>
+                                            <?php if($this->session->userdata('access') == 0):?>
+                                            <th>Action</th>
+                                            <?php endif;?>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -110,11 +112,13 @@
                                             <td><?php echo $row->name;?></td>
                                             <td><?php echo $row->doctor_name;?></td>
                                             <td><?php echo $row->doctor_rad;?></td>
+                                            <?php if($this->session->userdata('access') == 0):?>
                                             <td>
                                                 <a href="<?php echo base_url().'patient/edit/'.$row->mr_number?>" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal">Edit</a>
                                                 <!-- <a href="<?php echo base_url().'patient/detail/'.$row->mr_number?>" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal">Detail</a> -->
                                                 <button class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalDelete<?php echo $row->mr_number;?>">Delete</button>
                                             </td>
+                                            <?php endif;?>
                                         </tr>
                                         <?php endforeach; ?>
                                     </tbody>

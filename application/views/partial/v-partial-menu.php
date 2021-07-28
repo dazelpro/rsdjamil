@@ -8,21 +8,26 @@
                 <span>Dashboard</span>
             </a>
         </li>
-        <!-- 2, 3 -->
-        <li class="sidebar-item <?php if($activeMenu == 2 || $activeMenu == 3):?> active <?php endif;?> has-sub">
-            <a href="#" class='sidebar-link'>
-                <i class="bi bi-grid-1x2-fill"></i>
-                <span>Master</span>
-            </a>
-            <ul class="submenu <?php if($activeMenu == 2 || $activeMenu == 3):?> active <?php endif;?>">
-                <li class="submenu-item <?php if($activeMenu == 2):?> active <?php endif;?>">
-                    <a href="<?php echo base_url().'master/room'?>">Ruangan</a>
-                </li>
-                <li class="submenu-item <?php if($activeMenu == 3):?> active <?php endif;?>">
-                    <a href="<?php echo base_url().'master/film-size'?>">Ukuran Film</a>
-                </li>
-            </ul>
-        </li>
+        <!-- 2, 3, 4 -->
+        <?php if($this->session->userdata('access') == 0):?> 
+            <li class="sidebar-item <?php if($activeMenu == 2 || $activeMenu == 3 || $activeMenu == 5):?> active <?php endif;?> has-sub">
+                <a href="#" class='sidebar-link'>
+                    <i class="bi bi-grid-1x2-fill"></i>
+                    <span>Master</span>
+                </a>
+                <ul class="submenu <?php if($activeMenu == 2 || $activeMenu == 3 || $activeMenu == 5):?> active <?php endif;?>">
+                    <li class="submenu-item <?php if($activeMenu == 2):?> active <?php endif;?>">
+                        <a href="<?php echo base_url().'master/room'?>">Ruangan</a>
+                    </li>
+                    <li class="submenu-item <?php if($activeMenu == 3):?> active <?php endif;?>">
+                        <a href="<?php echo base_url().'master/film-size'?>">Ukuran Film</a>
+                    </li>
+                    <li class="submenu-item <?php if($activeMenu == 5):?> active <?php endif;?>">
+                        <a href="<?php echo base_url().'handling'?>">Tindakan</a>
+                    </li>
+                </ul>
+            </li>
+        <?php endif;?>
         <!-- 4 -->
         <li class="sidebar-item <?php if($activeMenu == 4):?> active <?php endif;?>">
             <a href="<?php echo base_url().'patient'?>" class='sidebar-link'>
@@ -31,15 +36,12 @@
             </a>
         </li>
         <!-- 5, 6, 7 -->
-        <li class="sidebar-item <?php if($activeMenu == 5 || $activeMenu == 6 || $activeMenu == 7):?> active <?php endif;?> has-sub">
+        <li class="sidebar-item <?php if($activeMenu == 6 || $activeMenu == 7):?> active <?php endif;?> has-sub">
             <a href="#" class='sidebar-link'>
                 <i class="bi bi-file-earmark-medical-fill"></i>
-                <span>Tindakan</span>
+                <span>Radiologi</span>
             </a>
-            <ul class="submenu <?php if($activeMenu == 5 || $activeMenu == 6 || $activeMenu == 7):?> active <?php endif;?>">
-                <li class="submenu-item <?php if($activeMenu == 5):?> active <?php endif;?>">
-                    <a href="<?php echo base_url().'handling'?>">Tindakan</a>
-                </li>
+            <ul class="submenu <?php if($activeMenu == 6 || $activeMenu == 7):?> active <?php endif;?>">
                 <li class="submenu-item <?php if($activeMenu == 6):?> active <?php endif;?>">
                     <a href="<?php echo base_url().'handling/radiology'?>">Citra Radiologi</a>
                 </li>
@@ -49,24 +51,25 @@
             </ul>
         </li>
         <!-- 8, 9, 10 -->
-        <li class="sidebar-item <?php if($activeMenu == 8 || $activeMenu == 9 || $activeMenu == 10):?> active <?php endif;?> has-sub">
-            <a href="#" class='sidebar-link'>
-                <i class="bi bi-person-badge-fill"></i>
-                <span>Akun</span>
-            </a>
-            <ul class="submenu <?php if($activeMenu == 8 || $activeMenu == 9 || $activeMenu == 10):?> active <?php endif;?>">
-                <li class="submenu-item <?php if($activeMenu == 8):?> active <?php endif;?>">
-                    <a href="<?php echo base_url().'account/admin'?>">Admin Radiologi</a>
-                </li>
-                <li class="submenu-item <?php if($activeMenu == 9):?> active <?php endif;?>">
-                    <a href="<?php echo base_url().'account/doctor'?>">Dokter Pengirim</a>
-                </li>
-                <li class="submenu-item <?php if($activeMenu == 10):?> active <?php endif;?>">
-                    <a href="<?php echo base_url().'account/radiology-doctor'?>">Dokter Radiologi</a>
-                </li>
-            </ul>
-        </li>
-
+        <?php if($this->session->userdata('access') == 0):?> 
+            <li class="sidebar-item <?php if($activeMenu == 8 || $activeMenu == 9 || $activeMenu == 10):?> active <?php endif;?> has-sub">
+                <a href="#" class='sidebar-link'>
+                    <i class="bi bi-person-badge-fill"></i>
+                    <span>Akun</span>
+                </a>
+                <ul class="submenu <?php if($activeMenu == 8 || $activeMenu == 9 || $activeMenu == 10):?> active <?php endif;?>">
+                    <li class="submenu-item <?php if($activeMenu == 8):?> active <?php endif;?>">
+                        <a href="<?php echo base_url().'account/admin'?>">Admin Radiologi</a>
+                    </li>
+                    <li class="submenu-item <?php if($activeMenu == 9):?> active <?php endif;?>">
+                        <a href="<?php echo base_url().'account/doctor'?>">Dokter Pengirim</a>
+                    </li>
+                    <li class="submenu-item <?php if($activeMenu == 10):?> active <?php endif;?>">
+                        <a href="<?php echo base_url().'account/radiology-doctor'?>">Dokter Radiologi</a>
+                    </li>
+                </ul>
+            </li>
+        <?php endif;?>
         <!-- <li class="sidebar-item  has-sub">
             <a href="#" class='sidebar-link'>
                 <i class="bi bi-collection-fill"></i>
