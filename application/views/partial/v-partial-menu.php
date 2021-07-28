@@ -41,10 +41,10 @@
                     <a href="<?php echo base_url().'handling'?>">Tindakan</a>
                 </li>
                 <li class="submenu-item <?php if($activeMenu == 6):?> active <?php endif;?>">
-                    <a href="<?php echo base_url().'handling/patient'?>">Citra Radiologi</a>
+                    <a href="<?php echo base_url().'handling/radiology'?>">Citra Radiologi</a>
                 </li>
                 <li class="submenu-item <?php if($activeMenu == 7):?> active <?php endif;?>">
-                    <a href="<?php echo base_url().'handling/patient'?>">Bacaan Citra</a>
+                    <a href="<?php echo base_url().'handling/radiology-reading'?>">Bacaan Citra</a>
                 </li>
             </ul>
         </li>

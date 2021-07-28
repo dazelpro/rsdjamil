@@ -54,46 +54,54 @@ $route['default_controller'] = 'dashboard';
 // Login
 $route['login'] = 'authorization';
 // Master
-$route['master/room']               = 'master/pageRoom';
-$route['master/insert-room']        = 'master/insertRoom';
-$route['master/update-room']        = 'master/editRoom';
-$route['master/delete-room']        = 'master/deleteRoom';
+$route['master/room']                           = 'master/pageRoom';
+$route['master/insert-room']                    = 'master/insertRoom';
+$route['master/update-room']                    = 'master/editRoom';
+$route['master/delete-room']                    = 'master/deleteRoom';
 
-$route['master/film-size']          = 'master/pageFilmSize';
-$route['master/insert-film-size']   = 'master/insertFilmSize';
-$route['master/update-film-size']   = 'master/editFilmSize';
-$route['master/delete-film-size']   = 'master/deleteFilmSize';
+$route['master/film-size']                      = 'master/pageFilmSize';
+$route['master/insert-film-size']               = 'master/insertFilmSize';
+$route['master/update-film-size']               = 'master/editFilmSize';
+$route['master/delete-film-size']               = 'master/deleteFilmSize';
 // Patient
-$route['patient']                   = 'patient/pagePatient';
-$route['patient/new']               = 'patient/pageInsertPatient';
-$route['patient/edit/(:any)']       = 'patient/pageEditPatient/$1';
-$route['patient/detail/(:any)']     = 'patient/pageDetailPatient/$1';
-$route['patient/insert-patient']    = 'patient/insertPatient';
-$route['patient/update-patient']    = 'patient/updatePatient';
-$route['patient/delete-patient']    = 'patient/deletePatient';
+$route['patient']                               = 'patient/pagePatient';
+$route['patient/new']                           = 'patient/pageInsertPatient';
+$route['patient/edit/(:any)']                   = 'patient/pageEditPatient/$1';
+$route['patient/detail/(:any)']                 = 'patient/pageDetailPatient/$1';
+$route['patient/insert-patient']                = 'patient/insertPatient';
+$route['patient/update-patient']                = 'patient/updatePatient';
+$route['patient/delete-patient']                = 'patient/deletePatient';
 // Hendling
-$route['handling']                  = 'handling/pageHandling';
-$route['handling/insert-handling']  = 'handling/insertHandling';
-$route['handling/update-handling']  = 'handling/editHandling';
-$route['handling/delete-handling']  = 'handling/deleteHandling';
+$route['handling']                              = 'handling/pageHandling';
+$route['handling/insert-handling']              = 'handling/insertHandling';
+$route['handling/update-handling']              = 'handling/editHandling';
+$route['handling/delete-handling']              = 'handling/deleteHandling';
+
+$route['handling/radiology']                    = 'handling/pageRadiology';
+$route['handling/radiology/new']                = 'handling/pageInsertRadiology';
+$route['handling/radiology/edit/(:any)']        = 'handling/pageEditRadiology/$1';
+$route['handling/radiology/detail/(:any)']      = 'handling/pageDetailRadiology/$1';
+$route['handling/radiology/insert-radiology']   = 'handling/insertRadiology';
+$route['handling/radiology/update-radiology']   = 'handling/updateRadiology';
+$route['handling/radiology/delete-radiology']   = 'handling/deleteRadiology';
 // Account
-$route['account/admin']             = 'account/pageAdmin';
-$route['account/insert-admin']      = 'account/insertAdmin';
-$route['account/update-admin']      = 'account/editAdmin';
-$route['account/reset-pass-admin']  = 'account/resetPasswordAdmin';
-$route['account/delete-admin']      = 'account/deleteAdmin';
+$route['account/admin']                         = 'account/pageAdmin';
+$route['account/insert-admin']                  = 'account/insertAdmin';
+$route['account/update-admin']                  = 'account/editAdmin';
+$route['account/reset-pass-admin']              = 'account/resetPasswordAdmin';
+$route['account/delete-admin']                  = 'account/deleteAdmin';
 
-$route['account/doctor']            = 'account/pageDoctor';
-$route['account/insert-doctor']     = 'account/insertDoctor';
-$route['account/update-doctor']     = 'account/editDoctor';
-$route['account/reset-pass-doctor'] = 'account/resetPasswordDoctor';
-$route['account/delete-doctor']     = 'account/deleteDoctor';
+$route['account/doctor']                        = 'account/pageDoctor';
+$route['account/insert-doctor']                 = 'account/insertDoctor';
+$route['account/update-doctor']                 = 'account/editDoctor';
+$route['account/reset-pass-doctor']             = 'account/resetPasswordDoctor';
+$route['account/delete-doctor']                 = 'account/deleteDoctor';
 
-$route['account/radiology-doctor']            = 'account/pageRadiologyDoctor';
-$route['account/insert-radiology-doctor']     = 'account/insertRadiologyDoctor';
-$route['account/update-radiology-doctor']     = 'account/editRadiologyDoctor';
-$route['account/reset-pass-radiology-doctor'] = 'account/resetPasswordRadiologyDoctor';
-$route['account/delete-radiology-doctor']     = 'account/deleteRadiologyDoctor';
+$route['account/radiology-doctor']              = 'account/pageRadiologyDoctor';
+$route['account/insert-radiology-doctor']       = 'account/insertRadiologyDoctor';
+$route['account/update-radiology-doctor']       = 'account/editRadiologyDoctor';
+$route['account/reset-pass-radiology-doctor']   = 'account/resetPasswordRadiologyDoctor';
+$route['account/delete-radiology-doctor']       = 'account/deleteRadiologyDoctor';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
