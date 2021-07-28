@@ -151,7 +151,7 @@
                                 <?php endforeach;?>
                             </select><br>
                             <label style="font-weight:bold">Tarif</label>
-                            <input type="text" name="amount" class="form-control" autocomplete="off" required> <br>
+                            <input type="number" name="amount" class="form-control" autocomplete="off" required> <br>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -216,7 +216,7 @@
     <!-- End -->
     <!-- Delete Modal -->
     <?php foreach ($dataHandling->result() as $row): ?>
-    <form action="<?php echo site_url('master/delete-room');?>" method="post">
+    <form action="<?php echo site_url('handling/delete-handling');?>" method="post">
         <div class="modal fade" id="modalDelete<?php echo $row->id;?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable" role="document">
                 <div class="modal-content">
@@ -228,7 +228,7 @@
                     </div>
                     <div class="modal-body">
                         <input type="hidden" name="code" value="<?php echo $row->id;?>">
-                        <p>Ruangan adalah data Master. Anda ingin menghapus ruangan <b><?php echo $row->name;?></b> ?</p>
+                        <p>Anda ingin menghapus data Tindakan <b><?php echo $row->name;?></b> ?</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">

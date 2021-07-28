@@ -75,6 +75,7 @@ $route['patient/delete-patient']    = 'patient/deletePatient';
 $route['handling']                  = 'handling/pageHandling';
 $route['handling/insert-handling']  = 'handling/insertHandling';
 $route['handling/update-handling']  = 'handling/editHandling';
+$route['handling/delete-handling']  = 'handling/deleteHandling';
 // Account
 $route['account/admin']             = 'account/pageAdmin';
 $route['account/insert-admin']      = 'account/insertAdmin';

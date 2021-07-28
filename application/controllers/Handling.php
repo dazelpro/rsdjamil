@@ -41,4 +41,10 @@ class Handling extends CI_Controller {
 		redirect('handling');
     }
 
+	function deleteHandling() {
+        $id                     = $this->input->post('code');
+		$this->db->query("DELETE FROM table_handling WHERE id = '$id'");
+		redirect('handling');
+    }
+
 }
