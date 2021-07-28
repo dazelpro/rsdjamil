@@ -81,39 +81,38 @@
                     <div class="page-title">
                         <div class="row">
                             <div class="col-12 col-md-6 order-md-1 order-last">
-                                <h3>Data Pasien</h3>
+                                <h3>Data Tindakan</h3>
                             </div>
                         </div>
                     </div>
                     <section class="section">
                         <div class="card">
                             <div class="card-header">
-                                <a href="<?php echo base_url().'patient/new'?>" class="btn btn-outline-primary">Tambah Pasien</a>
+                                <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalNew">Tambah Tindakan</button>
                             </div>
                             <div class="card-body">
                                 <table class="table table-striped" id="mytable">
                                     <thead>
                                         <tr>
-                                            <th>MR</th>
-                                            <th>Nama</th>
-                                            <th>Dokter Pengirim</th>
-                                            <th>Dokter Radiology</th>
+                                            <th>Kode</th>
+                                            <th>Tindakan</th>
+                                            <th>Ukuran Film</th>
+                                            <th>Tarif</th>
                                             <th>Action  </th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php 
-                                            foreach ($dataPatient->result() as $row):
+                                            foreach ($dataHandling->result() as $row):
                                         ?>
                                         <tr>
-                                            <td><?php echo $row->mr_number;?></td>
+                                            <td><?php echo $row->id;?></td>
                                             <td><?php echo $row->name;?></td>
-                                            <td><?php echo $row->doctor_name;?></td>
-                                            <td><?php echo $row->doctor_rad;?></td>
+                                            <td><?php echo $row->size;?></td>
+                                            <td><?php echo $row->amount;?></td>
                                             <td>
-                                                <a href="<?php echo base_url().'patient/edit/'.$row->mr_number?>" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal">Edit</a>
-                                                <!-- <a href="<?php echo base_url().'patient/detail/'.$row->mr_number?>" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal">Detail</a> -->
-                                                <button class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalDelete<?php echo $row->mr_number;?>">Delete</button>
+                                                <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalEdit<?php echo $row->id;?>">Edit</button>
+                                                <button class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalDelete<?php echo $row->id;?>">Delete</button>
                                             </td>
                                         </tr>
                                         <?php endforeach; ?>
@@ -127,21 +126,100 @@
             </div>
         </div>
     </div>
-    <!-- Delete Modal -->
-    <?php foreach ($dataPatient->result() as $row): ?>
-    <form action="<?php echo site_url('patient/delete-patient');?>" method="post">
-        <div class="modal fade" id="modalDelete<?php echo $row->mr_number;?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <!-- New Data Modal -->
+    <form action="<?php echo site_url('handling/insert-handling');?>" method="post">
+        <div class="modal fade" id="modalNew" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable" role="document">
                 <div class="modal-content">
-                    <div class="modal-header bg-danger">
-                        <h5 class="modal-title white" id="exampleModalCenterTitle">Peringatan </h5>
-                        <button type="button" class="close white" data-bs-dismiss="modal" aria-label="Close">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">Tambah Data </h5>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                             <i data-feather="x"></i>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <input type="hidden" name="code" value="<?php echo $row->mr_number;?>">
-                        <p>Anda ingin menghapus pasien atas nama <b><?php echo $row->name;?></b> ?</p>
+                        <div class="form-group">
+                            <label style="font-weight:bold">Kode</label>
+                            <input type="text" name="code" readonly class="form-control" value="T<?php echo sprintf("%04s", $code)?>" required> <br>
+                            <label style="font-weight:bold">Nama Tindakan</label>
+                            <input type="text" name="name" class="form-control" autocomplete="off" required> <br>
+                            <label style="font-weight:bold">Ukuran Film</label>
+                            <select class="form-select" id="basicSelect" name="size" required>
+                                <option disabled selected value>Pilih ukuran film *</option>
+                                <?php foreach ($dataFilm->result() as $i) : ?>
+                                    <option value="<?php echo $i->id;?>"><?php echo $i->size;?></option>
+                                <?php endforeach;?>
+                            </select><br>
+                            <label style="font-weight:bold">Tarif</label>
+                            <input type="text" name="amount" class="form-control" autocomplete="off" required> <br>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+                            <i class="bi bi-x d-block d-sm-none"></i>
+                            <span class="d-none d-sm-block">Batal</span>
+                        </button>
+                        <button type="submit" class="btn btn-primary ml-1">
+                            <i class="bi bi-check d-block d-sm-none"></i>
+                            <span class="d-none d-sm-block">Simpan</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <!-- End -->
+    <!-- Edit Modal -->
+    <?php foreach ($dataHandling->result() as $row): ?>
+    <form action="<?php echo site_url('master/update-room');?>" method="post">
+        <div class="modal fade" id="modalEdit<?php echo $row->id;?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">Edit </h5>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                            <i data-feather="x"></i>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label style="font-weight:bold">Kode</label>
+                            <input type="text" name="code" readonly class="form-control" value="<?php echo $row->id;?>" required> <br>
+                            <label style="font-weight:bold">Nama Ruangan</label>
+                            <input type="text" name="name" pattern="[^';*\x22]+" class="form-control" value="<?php echo $row->name;?>" autocomplete="off" required> <br>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+                            <i class="bi bi-x d-block d-sm-none"></i>
+                            <span class="d-none d-sm-block">Batal</span>
+                        </button>
+                        <button type="submit" class="btn btn-primary ml-1">
+                            <i class="bi bi-check d-block d-sm-none"></i>
+                            <span class="d-none d-sm-block">Perbarui</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <?php endforeach;?>
+    <!-- End -->
+    <!-- Delete Modal -->
+    <?php foreach ($dataHandling->result() as $row): ?>
+    <form action="<?php echo site_url('master/delete-room');?>" method="post">
+        <div class="modal fade" id="modalDelete<?php echo $row->id;?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable" role="document">
+                <div class="modal-content">
+                    <div class="modal-header bg-danger">
+                        <h5 class="modal-title white" id="exampleModalCenterTitle">Peringatan </h5>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                            <i data-feather="x"></i>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="hidden" name="code" value="<?php echo $row->id;?>">
+                        <p>Ruangan adalah data Master. Anda ingin menghapus ruangan <b><?php echo $row->name;?></b> ?</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">

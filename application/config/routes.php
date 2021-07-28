@@ -72,7 +72,8 @@ $route['patient/insert-patient']    = 'patient/insertPatient';
 $route['patient/update-patient']    = 'patient/updatePatient';
 $route['patient/delete-patient']    = 'patient/deletePatient';
 // Hendling
-// $route['handling/patient']          = 'handling/pagePatient';
+$route['handling']                  = 'handling/pageHandling';
+$route['handling/insert-handling']  = 'handling/insertHandling';
 // Account
 $route['account/admin']             = 'account/pageAdmin';
 $route['account/insert-admin']      = 'account/insertAdmin';

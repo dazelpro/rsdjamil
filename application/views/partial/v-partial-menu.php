@@ -38,7 +38,7 @@
             </a>
             <ul class="submenu <?php if($activeMenu == 5 || $activeMenu == 6 || $activeMenu == 7):?> active <?php endif;?>">
                 <li class="submenu-item <?php if($activeMenu == 5):?> active <?php endif;?>">
-                    <a href="<?php echo base_url().'handling/patient'?>">Tindakan</a>
+                    <a href="<?php echo base_url().'handling'?>">Tindakan</a>
                 </li>
                 <li class="submenu-item <?php if($activeMenu == 6):?> active <?php endif;?>">
                     <a href="<?php echo base_url().'handling/patient'?>">Citra Radiologi</a>
