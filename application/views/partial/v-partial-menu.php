@@ -67,7 +67,7 @@
             </ul>
         </li>
 
-        <li class="sidebar-item  has-sub">
+        <!-- <li class="sidebar-item  has-sub">
             <a href="#" class='sidebar-link'>
                 <i class="bi bi-collection-fill"></i>
                 <span>Laporan</span>
@@ -77,7 +77,7 @@
                     <a href="extra-component-avatar.html">Avatar</a>
                 </li>
             </ul>
-        </li>
+        </li> -->
 
     </ul>
 </div>
