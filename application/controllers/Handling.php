@@ -111,7 +111,7 @@ class Handling extends CI_Controller {
                 $id            = $this->input->post('code');
                 $mr            = $this->input->post('mr');
                 $handling      = $this->input->post('handling');
-                $this->db->query("INSERT INTO table_radiological_image VALUES ('$id','$mr','$handling','$foto')");
+                $this->db->query("INSERT INTO table_radiological_image (id,mr_number,handling,file) VALUES ('$id','$mr','$handling','$foto')");
                 redirect('handling/radiology');
 			}else{
 				echo $this->session->set_flashdata('msg','<div class="alert alert-danger border-danger">
@@ -135,6 +135,45 @@ class Handling extends CI_Controller {
         $id                     = $this->input->post('code');
 		$this->db->query("DELETE FROM table_radiological_image WHERE id = '$id'");
 		redirect('handling/radiology');
+    }
+
+    // Reading
+    function pageReading() {
+        $data['dataRad']   		= $this->db->query("SELECT 
+            table_radiological_image.id, 
+            table_patient.name, 
+            table_doctor.`name` as doctor_name, 
+            table_doctor_radiology.`name` as doctor_rad,
+            table_radiological_image.status
+        FROM table_radiological_image
+            JOIN table_patient ON table_radiological_image.`mr_number` = table_patient.`mr_number`
+            JOIN table_doctor ON table_patient.`doctor` = table_doctor.`id`
+            JOIN table_doctor_radiology ON table_patient.`radiology_doctor` = table_doctor_radiology.`id`
+        ");
+        $data['activeMenu']     = '7';
+        $this->load->view('reading/v-reading', $data);
+    }
+
+    function pageInputReading($id) {
+        $data['dataRad']   		= $this->db->query("SELECT 
+            table_radiological_image.id, 
+            table_radiological_image.`file`, 
+            table_patient.name, 
+            table_doctor.`name` AS doctor_name, 
+            table_doctor_radiology.`name` AS doctor_rad, 
+            table_room.`name` AS room,
+            table_handling.`name` AS handling,
+            table_handling.`amount`
+        FROM table_radiological_image
+            JOIN table_patient ON table_radiological_image.`mr_number` = table_patient.`mr_number`
+            JOIN table_doctor ON table_patient.`doctor` = table_doctor.`id`
+            JOIN table_doctor_radiology ON table_patient.`radiology_doctor` = table_doctor_radiology.`id`
+            JOIN table_room ON table_patient.`room` = table_room.`id`
+            JOIN table_handling ON table_radiological_image.handling = table_handling.`id`
+        WHERE table_radiological_image.id = '$id'
+        ");
+        $data['activeMenu']     = '7';
+        $this->load->view('reading/v-input-reading', $data);
     }
 
 }

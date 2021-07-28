@@ -155,14 +155,15 @@ CREATE TABLE `table_radiological_image` (
   `mr_number` char(10) DEFAULT NULL,
   `handling` char(10) DEFAULT NULL,
   `file` text DEFAULT NULL,
+  `status` int(11) DEFAULT 0 COMMENT '0 = Belum baca',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `table_radiological_image` */
 
-insert  into `table_radiological_image`(`id`,`mr_number`,`handling`,`file`) values 
-('RAD0001','MR0002','T0002','9e8beb039c9da04bfb9be669cacc6594.jpeg'),
-('RAD0002','MR0001','T0001','b3aaa7cce3e7c2f5e9da5bf6fb977d15.jpeg');
+insert  into `table_radiological_image`(`id`,`mr_number`,`handling`,`file`,`status`) values 
+('RAD0002','MR0001','T0001','b3aaa7cce3e7c2f5e9da5bf6fb977d15.jpeg',0),
+('RAD0003','MR0002','T0002','4b86f435cbdb83698f004369c9411594.jpeg',0);
 
 /*Table structure for table `table_radiology_reading` */
 

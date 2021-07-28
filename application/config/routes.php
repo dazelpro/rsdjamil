@@ -84,6 +84,13 @@ $route['handling/radiology/detail/(:any)']      = 'handling/pageDetailRadiology/
 $route['handling/radiology/insert-radiology']   = 'handling/insertRadiology';
 $route['handling/radiology/update-radiology']   = 'handling/updateRadiology';
 $route['handling/radiology/delete-radiology']   = 'handling/deleteRadiology';
+
+$route['handling/radiology-reading']                    = 'handling/pageReading';
+$route['handling/radiology-reading/input/(:any)']       = 'handling/pageInputReading/$1';
+$route['handling/radiology-reading/detail/(:any)']      = 'handling/pageDetailRadiology/$1';
+$route['handling/radiology-reading/insert-radiology']   = 'handling/insertRadiology';
+$route['handling/radiology-reading/update-radiology']   = 'handling/updateRadiology';
+$route['handling/radiology-reading/delete-radiology']   = 'handling/deleteRadiology';
 // Account
 $route['account/admin']                         = 'account/pageAdmin';
 $route['account/insert-admin']                  = 'account/insertAdmin';
