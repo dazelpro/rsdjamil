@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Home extends CI_Controller {
+class Dashboard extends CI_Controller {
 	
 	function __construct(){
 		parent::__construct();
@@ -12,7 +12,8 @@ class Home extends CI_Controller {
 	}
 
 	public function index() {
-		$this->load->view('welcome_message');
+		$data['activeMenu'] = '1';
+		$this->load->view('v-dashboard', $data);
 	}
 
 }
