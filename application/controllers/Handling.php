@@ -75,6 +75,28 @@ class Handling extends CI_Controller {
         $this->load->view('radiology/v-add-radiology', $data);
     }
 
+    function pageDetailRadiology($id) {
+        $data['dataRad']   		= $this->db->query("SELECT 
+            table_radiological_image.id, 
+            table_radiological_image.`file`, 
+            table_patient.name, 
+            table_doctor.`name` AS doctor_name, 
+            table_doctor_radiology.`name` AS doctor_rad, 
+            table_room.`name` AS room,
+            table_handling.`name` AS handling,
+            table_handling.`amount`
+        FROM table_radiological_image
+            JOIN table_patient ON table_radiological_image.`mr_number` = table_patient.`mr_number`
+            JOIN table_doctor ON table_patient.`doctor` = table_doctor.`id`
+            JOIN table_doctor_radiology ON table_patient.`radiology_doctor` = table_doctor_radiology.`id`
+            JOIN table_room ON table_patient.`room` = table_room.`id`
+            JOIN table_handling ON table_radiological_image.handling = table_handling.`id`
+        WHERE table_radiological_image.id = '$id'
+        ");
+        $data['activeMenu']     = '6';
+        $this->load->view('radiology/v-detail-radiology', $data);
+    }
+
 	function insertRadiology() {
         $config['upload_path'] = './assets/images/upload';
         $config['allowed_types'] = 'jpg|png|jpeg';
@@ -111,7 +133,7 @@ class Handling extends CI_Controller {
 
 	function deleteRadiology() {
         $id                     = $this->input->post('code');
-		$this->db->query("DELETE FROM table_handling WHERE id = '$id'");
+		$this->db->query("DELETE FROM table_radiological_image WHERE id = '$id'");
 		redirect('handling/radiology');
     }
 
