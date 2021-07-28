@@ -138,7 +138,7 @@
                                                 <div class="input-group mb-3">
                                                     <label class="input-group-text" for="inputGroupFile01"><i
                                                             class="bi bi-upload"></i></label>
-                                                    <input type="file" name="image" class="form-control" id="inputGroupFile01">
+                                                    <input type="file" name="image" class="form-control" id="inputGroupFile01" required>
                                                 </div>
                                             </div>
                                             <div class="form-group">

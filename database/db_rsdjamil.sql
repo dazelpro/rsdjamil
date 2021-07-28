@@ -161,7 +161,8 @@ CREATE TABLE `table_radiological_image` (
 /*Data for the table `table_radiological_image` */
 
 insert  into `table_radiological_image`(`id`,`mr_number`,`handling`,`file`) values 
-('RAD0001','MR0002','T0001','0cef47ae8efe228e07ab69559ef38cb9.jpeg');
+('RAD0001','MR0002','T0002','9e8beb039c9da04bfb9be669cacc6594.jpeg'),
+('RAD0002','MR0001','T0001','b3aaa7cce3e7c2f5e9da5bf6fb977d15.jpeg');
 
 /*Table structure for table `table_radiology_reading` */
 
