@@ -12,7 +12,7 @@ class Handling extends CI_Controller {
 	}
 
     function pageHandling() {
-        $data['dataHandling']   = $this->db->query("SELECT table_handling.`id`, NAME as name, amount, size FROM table_handling JOIN table_film ON table_handling.`film` = table_film.`id`");
+        $data['dataHandling']   = $this->db->query("SELECT table_handling.`id`, NAME as name, amount, film, size FROM table_handling JOIN table_film ON table_handling.`film` = table_film.`id`");
         $data['dataFilm']  		= $this->db->query("SELECT * FROM table_film");
         $query                  = $this->db->query("SELECT MAX(id) AS newCode FROM table_handling")->row_array();
         $lastID                 = $query['newCode'];
@@ -29,6 +29,15 @@ class Handling extends CI_Controller {
 		$size                   = $this->input->post('size');
 		$amount                 = $this->input->post('amount');
 		$this->db->query("INSERT INTO table_handling (id,name,film,amount) VALUES ('$id','$name','$size','$amount')");
+		redirect('handling');
+    }
+
+	function editHandling() {
+        $id                     = $this->input->post('code');
+        $name                   = $this->input->post('name');
+		$size                   = $this->input->post('size');
+		$amount                 = $this->input->post('amount');
+		$this->db->query("UPDATE table_handling SET NAME = '$name', film = '$size', amount = '$amount' WHERE id = '$id'");
 		redirect('handling');
     }
 

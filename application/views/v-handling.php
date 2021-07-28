@@ -109,7 +109,7 @@
                                             <td><?php echo $row->id;?></td>
                                             <td><?php echo $row->name;?></td>
                                             <td><?php echo $row->size;?></td>
-                                            <td><?php echo $row->amount;?></td>
+                                            <td>Rp. <?php echo number_format($row->amount);?></td>
                                             <td>
                                                 <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalEdit<?php echo $row->id;?>">Edit</button>
                                                 <button class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalDelete<?php echo $row->id;?>">Delete</button>
@@ -171,7 +171,7 @@
     <!-- End -->
     <!-- Edit Modal -->
     <?php foreach ($dataHandling->result() as $row): ?>
-    <form action="<?php echo site_url('master/update-room');?>" method="post">
+    <form action="<?php echo site_url('handling/update-handling');?>" method="post">
         <div class="modal fade" id="modalEdit<?php echo $row->id;?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable" role="document">
                 <div class="modal-content">
@@ -185,8 +185,17 @@
                         <div class="form-group">
                             <label style="font-weight:bold">Kode</label>
                             <input type="text" name="code" readonly class="form-control" value="<?php echo $row->id;?>" required> <br>
-                            <label style="font-weight:bold">Nama Ruangan</label>
-                            <input type="text" name="name" pattern="[^';*\x22]+" class="form-control" value="<?php echo $row->name;?>" autocomplete="off" required> <br>
+                            <label style="font-weight:bold">Nama Tindakan</label>
+                            <input type="text" name="name" class="form-control" value="<?php echo $row->name;?>" autocomplete="off" required> <br>
+                            <label style="font-weight:bold">Ukuran Film</label>
+                            <select class="form-select" id="basicSelect" name="size" required>
+                                <option disabled selected value>Pilih ukuran film *</option>
+                                <?php foreach ($dataFilm->result() as $i) : ?>
+                                    <option value="<?php echo $i->id;?>" <?php if($row->film == $i->id):?> selected <?php endif;?>><?php echo $i->size;?></option>
+                                <?php endforeach;?>
+                            </select><br>
+                            <label style="font-weight:bold">Tarif</label>
+                            <input type="text" name="amount" class="form-control" value="<?php echo $row->amount;?>" autocomplete="off" required> <br>
                         </div>
                     </div>
                     <div class="modal-footer">
