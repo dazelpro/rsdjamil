@@ -88,7 +88,7 @@
                     <section class="section">
                         <div class="card">
                             <div class="card-body">
-                                <button>Cetak</button>
+                                <button class="btn btn-outline-primary">Cetak</button>
                             </div>
                         </div>
                     </section>
