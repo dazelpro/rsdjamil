@@ -87,9 +87,11 @@
                     </div>
                     <section class="section">
                         <div class="card">
-                            <div class="card-header">
-                                <a href="<?php echo base_url().'patient/new'?>" class="btn btn-outline-primary">Tambah Pasien</a>
-                            </div>
+                            <?php if($this->session->userdata('access') == 0):?> 
+                                <div class="card-header">
+                                    <a href="<?php echo base_url().'patient/new'?>" class="btn btn-outline-primary">Tambah Pasien</a>
+                                </div>
+                            <?php endif;?>
                             <div class="card-body">
                                 <table class="table table-striped" id="mytable">
                                     <thead>
