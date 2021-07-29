@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Laporan Pelayanan Radiographer - RSUP Dr. M. Djamil Padang</title>
 </head>
-
+<script>window.print()</script>
 <body>
     <h2>Laporan Kinerja Pelayanan Radiographer</h2>
     <table style="width: 100%;" border="1" id="tables">
@@ -64,7 +64,7 @@
     #tables th {
         padding-top: 12px;
         padding-bottom: 12px;
-        text-align: left;
+        text-align: center;
         background-color: #04AA6D;
         color: white;
     }
