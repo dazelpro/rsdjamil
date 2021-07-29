@@ -47,5 +47,22 @@ class Report extends CI_Controller {
         $this->load->view('report/p-handling', $data);
     }
 
+    function pageFilm() {
+        $data['activeMenu']     = '14';
+        $this->load->view('report/v-film', $data);
+    }
+
+    function printFilm() {
+        $data['dataRoom']       = $this->db->query("SELECT 
+            table_film.`size` as name,
+            COUNT(table_radiological_image.`mr_number`) AS qty
+        FROM table_film
+            JOIN table_handling ON table_handling.`film` = table_film.`id`
+            JOIN table_radiological_image ON table_radiological_image.`handling` = table_handling.`id`
+            GROUP BY table_film.`size`
+        ");
+        $this->load->view('report/p-film', $data);
+    }
+
 
 }

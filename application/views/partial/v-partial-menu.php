@@ -96,7 +96,7 @@
                     <a href="<?php echo base_url().'report/handling'?>">Tindakan</a>
                 </li>
                 <li class="submenu-item <?php if($activeMenu == 14):?> active <?php endif;?>">
-                    <a href="#">Penggunaan Film</a>
+                    <a href="<?php echo base_url().'report/film-use'?>">Penggunaan Film</a>
                 </li>
                 <li class="submenu-item <?php if($activeMenu == 15):?> active <?php endif;?>">
                     <a href="#">Per Ruangan</a>
