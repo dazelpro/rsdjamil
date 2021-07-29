@@ -64,5 +64,21 @@ class Report extends CI_Controller {
         $this->load->view('report/p-film', $data);
     }
 
+    function pageRoom() {
+        $data['activeMenu']     = '15';
+        $this->load->view('report/v-room', $data);
+    }
+
+    function printRoom() {
+        $data['dataRoom']       = $this->db->query("SELECT 
+            table_room.`name` AS name,
+            COUNT(table_patient.`name`) AS qty
+        FROM table_room
+            JOIN table_patient ON table_patient.`room` = table_room.`id`
+            GROUP BY table_room.`name`
+        ");
+        $this->load->view('report/p-room', $data);
+    }
+
 
 }
