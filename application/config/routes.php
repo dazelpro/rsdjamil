@@ -87,8 +87,8 @@ $route['handling/radiology/delete-radiology']   = 'handling/deleteRadiology';
 
 $route['handling/radiology-reading']                    = 'handling/pageReading';
 $route['handling/radiology-reading/input/(:any)']       = 'handling/pageInputReading/$1';
-$route['handling/radiology-reading/edit/(:any)']       = 'handling/pageEditReading/$1';
-$route['handling/radiology-reading/detail/(:any)']      = 'handling/pageDetailRadiology/$1';
+$route['handling/radiology-reading/edit/(:any)']        = 'handling/pageEditReading/$1';
+$route['handling/radiology-reading/preview/(:any)']     = 'handling/pagePreviewReading/$1';
 $route['handling/radiology-reading/insert-reading']     = 'handling/insertReading';
 $route['handling/radiology-reading/update-reading']     = 'handling/updateReading';
 $route['handling/radiology-reading/delete-reading']     = 'handling/deleteReading';

@@ -33,7 +33,10 @@ insert  into `table_account`(`id`,`email`,`password`,`role`,`status`,`create_at`
 ('D0001','ikhsan@gmail.com','21232f297a57a5a743894a0e4a801fc3',1,'1','2021-07-26 15:12:29'),
 ('D0002','dani_ramadhan@gmail.com','21232f297a57a5a743894a0e4a801fc3',1,'1','2021-07-26 15:14:10'),
 ('A0001','admin@gmail.com','21232f297a57a5a743894a0e4a801fc3',0,'1','2021-07-18 21:01:32'),
-('A0002','balmond@gmail.com','21232f297a57a5a743894a0e4a801fc3',0,'1','2021-07-26 12:22:02');
+('A0002','balmond@gmail.com','21232f297a57a5a743894a0e4a801fc3',0,'1','2021-07-26 12:22:02'),
+('D0003','dokter@gmail.com','21232f297a57a5a743894a0e4a801fc3',1,'1','2021-07-29 11:47:16'),
+('R0003','radiologi@gmail.com','21232f297a57a5a743894a0e4a801fc3',2,'1','2021-07-29 11:49:13'),
+('A0003','dazelpro@gmail.com','49704c99a86cd1a0760c555ff10d23d0',0,'1','2021-07-29 11:49:58');
 
 /*Table structure for table `table_admin` */
 
@@ -51,7 +54,8 @@ CREATE TABLE `table_admin` (
 
 insert  into `table_admin`(`id`,`name`,`phone`,`address`) values 
 ('A0001','Tonny Mulyadi','081388946311','Jl. Perumnas Belimbing No 109'),
-('A0002','Balmond Ali Amran','081399028833','Jl. Sisingamaharaja X No 2');
+('A0002','Balmond Ali Amran','081399028833','Jl. Sisingamaharaja X No 2'),
+('A0003','Zeldianto EP','082387020921','Komp. Parupuk Raya Blok H No. 109');
 
 /*Table structure for table `table_doctor` */
 
@@ -69,7 +73,8 @@ CREATE TABLE `table_doctor` (
 
 insert  into `table_doctor`(`id`,`name`,`phone`,`address`) values 
 ('D0001','dr. Muhammad Ikhsan','083188993375','Komp. Parupuk Tabing Blok H 9 Padang'),
-('D0002','dr. Trihamdani Ramadhan','087768920022','Jl. Balimbing Utara No 11 C');
+('D0002','dr. Trihamdani Ramadhan','087768920022','Jl. Balimbing Utara No 11 C'),
+('D0003','dr. Hidayaturrahman','083181889099','Sembrang Palinggam Padang');
 
 /*Table structure for table `table_doctor_radiology` */
 
@@ -87,7 +92,8 @@ CREATE TABLE `table_doctor_radiology` (
 
 insert  into `table_doctor_radiology`(`id`,`name`,`phone`,`address`) values 
 ('R0001','dr. Ratih Suciana, Sp. Rad','085277864328','Jl. Jendral Sudirman No 188'),
-('R0002','dr. Indra Kuncoro, Sp. Rad','081388009311','Komp. Mega Permai Indah 9 Padang');
+('R0002','dr. Indra Kuncoro, Sp. Rad','081388009311','Komp. Mega Permai Indah 9 Padang'),
+('R0003','dr. Puri Aprilon, Sp. Rad','082399843111','Perumnas Belimbing Blok C No. 8');
 
 /*Table structure for table `table_film` */
 
@@ -144,7 +150,8 @@ CREATE TABLE `table_patient` (
 
 insert  into `table_patient`(`mr_number`,`name`,`place_of_birth`,`date_of_birth`,`gender`,`room`,`doctor`,`radiology_doctor`) values 
 ('MR0001','Anita Hara','Jakarta','1991-01-06','Wanita','R0002','D0001','R0002'),
-('MR0002','Muhammad Faizin','Alahan Panjang','1997-06-30','Pria','R0001','D0001','R0001');
+('MR0002','Muhammad Faizin','Alahan Panjang','1997-06-30','Pria','R0001','D0001','R0001'),
+('MR0003','Apridestio Fajri','Solo','1999-09-01','Pria','R0001','D0003','R0003');
 
 /*Table structure for table `table_radiological_image` */
 
@@ -162,8 +169,9 @@ CREATE TABLE `table_radiological_image` (
 /*Data for the table `table_radiological_image` */
 
 insert  into `table_radiological_image`(`id`,`mr_number`,`handling`,`file`,`status`) values 
-('RAD0002','MR0001','T0001','b3aaa7cce3e7c2f5e9da5bf6fb977d15.jpeg',0),
-('RAD0003','MR0002','T0002','4b86f435cbdb83698f004369c9411594.jpeg',0);
+('RAD0002','MR0001','T0001','b3aaa7cce3e7c2f5e9da5bf6fb977d15.jpeg',1),
+('RAD0003','MR0002','T0002','4b86f435cbdb83698f004369c9411594.jpeg',0),
+('RAD0004','MR0003','T0002','a322c0d54534b6e09958a9d4e86cfc0b.jpeg',0);
 
 /*Table structure for table `table_radiology_reading` */
 
@@ -172,11 +180,14 @@ DROP TABLE IF EXISTS `table_radiology_reading`;
 CREATE TABLE `table_radiology_reading` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `radiology` char(10) DEFAULT NULL,
-  `description` text DEFAULT NULL,
+  `description` longtext DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `table_radiology_reading` */
+
+insert  into `table_radiology_reading`(`id`,`radiology`,`description`) values 
+(6,'RAD0002','  <p>Dilihat dari hasil CT Scan, dapat disimpulkan bahwa pasien ini tidak daapt di selamatkan.</p>');
 
 /*Table structure for table `table_room` */
 
