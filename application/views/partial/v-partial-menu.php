@@ -79,17 +79,32 @@
                 </ul>
             </li>
         <?php endif;?>
-        <!-- <li class="sidebar-item  has-sub">
+        <li class="sidebar-item  has-sub">
             <a href="#" class='sidebar-link'>
                 <i class="bi bi-collection-fill"></i>
                 <span>Laporan</span>
             </a>
             <ul class="submenu ">
                 <li class="submenu-item ">
-                    <a href="extra-component-avatar.html">Avatar</a>
+                    <a href="#">Pelayanan Radiografer</a>
+                </li>
+                <li class="submenu-item ">
+                    <a href="#">Pelayanan Dokter</a>
+                </li>
+                <li class="submenu-item ">
+                    <a href="#">Tindakan</a>
+                </li>
+                <li class="submenu-item ">
+                    <a href="#">Penggunaan Film</a>
+                </li>
+                <li class="submenu-item ">
+                    <a href="#">Per Ruangan</a>
+                </li>
+                <li class="submenu-item ">
+                    <a href="#">laporan Pendapatan</a>
                 </li>
             </ul>
-        </li> -->
+        </li>
 
     </ul>
 </div>
