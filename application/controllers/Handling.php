@@ -139,6 +139,11 @@ class Handling extends CI_Controller {
 
     // Reading
     function pageReading() {
+        $queryCondition = '';
+        $idLogin = $this->session->userdata('id');
+        if ($this->session->userdata('access') == 2) { //Jika yang mengakses adalah Dokter Radiologi, maka tambahkan Query Where.
+            $queryCondition = "WHERE table_doctor_radiology.`id` = '$idLogin' ";
+        }
         $data['dataRad']   		= $this->db->query("SELECT 
             table_radiological_image.id, 
             table_patient.name, 
@@ -149,6 +154,7 @@ class Handling extends CI_Controller {
             JOIN table_patient ON table_radiological_image.`mr_number` = table_patient.`mr_number`
             JOIN table_doctor ON table_patient.`doctor` = table_doctor.`id`
             JOIN table_doctor_radiology ON table_patient.`radiology_doctor` = table_doctor_radiology.`id`
+            $queryCondition
         ");
         $data['activeMenu']     = '7';
         $this->load->view('reading/v-reading', $data);
