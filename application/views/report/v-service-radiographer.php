@@ -88,7 +88,7 @@
                     <section class="section">
                         <div class="card">
                             <div class="card-body">
-                                <button class="btn btn-outline-primary">Cetak</button>
+                                <a href="<?php echo base_url().'report/service-radiographer-print'?>" class="btn btn-outline-primary"  target="_blank">Cetak</a>
                             </div>
                         </div>
                     </section>

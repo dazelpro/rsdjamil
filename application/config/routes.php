@@ -117,6 +117,7 @@ $route['account/delete-radiology-doctor']       = 'account/deleteRadiologyDoctor
 
 // Report
 $route['report/service-radiographer']           = 'report/pageServiceRadiographer';
+$route['report/service-radiographer-print']     = 'report/printServiceRadiographer';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

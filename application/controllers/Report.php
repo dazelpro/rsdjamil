@@ -16,4 +16,9 @@ class Report extends CI_Controller {
         $this->load->view('report/v-service-radiographer', $data);
     }
 
+    function printServiceRadiographer() {
+        $data['dataRoom']       = $this->db->query("SELECT name, COUNT(mr_number) AS qty FROM table_radiological_image JOIN table_handling ON table_radiological_image.`handling` = table_handling.`id` GROUP BY name");
+        $this->load->view('report/p-service-radiographer', $data);
+    }
+
 }
