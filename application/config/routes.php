@@ -130,6 +130,7 @@ $route['report/room-print']                     = 'report/printRoom';
 $route['report/income']                         = 'report/pageIncome';
 $route['report/income/film']                    = 'report/printIncomeFilm';
 $route['report/income/handling']                = 'report/printIncomeHandling';
+$route['report/income/room']                    = 'report/printIncomeRoom';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

@@ -109,5 +109,18 @@ class Report extends CI_Controller {
         $this->load->view('report/p-income-handling', $data);
     }
 
+    function printIncomeRoom() {
+        $data['dataRoom']       = $this->db->query("SELECT 
+            table_room.`name` AS name,
+            SUM(table_handling.`amount`) AS qty
+        FROM table_room
+            JOIN table_patient ON table_patient.`room` = table_room.`id`
+            JOIN table_radiological_image ON table_radiological_image.`mr_number` = table_patient.`mr_number`
+            JOIN table_handling ON table_handling.`id` = table_radiological_image.`handling`
+            GROUP BY table_room.`name`
+        ");
+        $this->load->view('report/p-income-room', $data);
+    }
+
 
 }
