@@ -42,12 +42,21 @@
                 <span>Radiologi</span>
             </a>
             <ul class="submenu <?php if($activeMenu == 6 || $activeMenu == 7):?> active <?php endif;?>">
-                <li class="submenu-item <?php if($activeMenu == 6):?> active <?php endif;?>">
-                    <a href="<?php echo base_url().'handling/radiology'?>">Citra Radiologi</a>
-                </li>
-                <li class="submenu-item <?php if($activeMenu == 7):?> active <?php endif;?>">
-                    <a href="<?php echo base_url().'handling/radiology-reading'?>">Bacaan Citra</a>
-                </li>
+                <?php if($this->session->userdata('access') == 0):?> 
+                    <li class="submenu-item <?php if($activeMenu == 6):?> active <?php endif;?>">
+                        <a href="<?php echo base_url().'handling/radiology'?>">Citra Radiologi</a>
+                    </li>
+                <?php endif;?>
+                <?php if($this->session->userdata('access') == 1):?> 
+                    <li class="submenu-item <?php if($activeMenu == 7):?> active <?php endif;?>">
+                        <a href="<?php echo base_url().'handling/radiology-reading'?>">Hasil Bacaan Citra</a>
+                    </li>
+                <?php endif;?>
+                <?php if($this->session->userdata('access') == 2):?> 
+                    <li class="submenu-item <?php if($activeMenu == 7):?> active <?php endif;?>">
+                        <a href="<?php echo base_url().'handling/radiology-reading'?>">Bacaan Citra</a>
+                    </li>
+                <?php endif;?>
             </ul>
         </li>
         <!-- 8, 9, 10 -->
