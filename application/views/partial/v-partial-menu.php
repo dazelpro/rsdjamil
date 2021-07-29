@@ -79,17 +79,33 @@
                 </ul>
             </li>
         <?php endif;?>
-        <!-- <li class="sidebar-item  has-sub">
+        <!-- 11, 12, 13, 14, 15, 16 -->
+        <li class="sidebar-item <?php if($activeMenu == 11 || $activeMenu == 12 || $activeMenu == 13 || $activeMenu == 14 || $activeMenu == 15 || $activeMenu == 16):?> active <?php endif;?> has-sub">
             <a href="#" class='sidebar-link'>
                 <i class="bi bi-collection-fill"></i>
                 <span>Laporan</span>
             </a>
-            <ul class="submenu ">
-                <li class="submenu-item ">
-                    <a href="extra-component-avatar.html">Avatar</a>
+            <ul class="submenu <?php if($activeMenu == 11 || $activeMenu == 12 || $activeMenu == 13 || $activeMenu == 14 || $activeMenu == 15 || $activeMenu == 16):?> active <?php endif;?>">
+                <li class="submenu-item <?php if($activeMenu == 11):?> active <?php endif;?>">
+                    <a href="<?php echo base_url().'report/service-radiographer'?>">Pelayanan Radiografer</a>
+                </li>
+                <li class="submenu-item <?php if($activeMenu == 12):?> active <?php endif;?>">
+                    <a href="#">Pelayanan Dokter</a>
+                </li>
+                <li class="submenu-item <?php if($activeMenu == 13):?> active <?php endif;?>">
+                    <a href="#">Tindakan</a>
+                </li>
+                <li class="submenu-item <?php if($activeMenu == 14):?> active <?php endif;?>">
+                    <a href="#">Penggunaan Film</a>
+                </li>
+                <li class="submenu-item <?php if($activeMenu == 15):?> active <?php endif;?>">
+                    <a href="#">Per Ruangan</a>
+                </li>
+                <li class="submenu-item <?php if($activeMenu == 16):?> active <?php endif;?>">
+                    <a href="#">laporan Pendapatan</a>
                 </li>
             </ul>
-        </li> -->
+        </li>
 
     </ul>
 </div>

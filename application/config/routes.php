@@ -53,6 +53,7 @@ $route['default_controller'] = 'dashboard';
 
 // Login
 $route['login'] = 'authorization';
+
 // Master
 $route['master/room']                           = 'master/pageRoom';
 $route['master/insert-room']                    = 'master/insertRoom';
@@ -63,6 +64,7 @@ $route['master/film-size']                      = 'master/pageFilmSize';
 $route['master/insert-film-size']               = 'master/insertFilmSize';
 $route['master/update-film-size']               = 'master/editFilmSize';
 $route['master/delete-film-size']               = 'master/deleteFilmSize';
+
 // Patient
 $route['patient']                               = 'patient/pagePatient';
 $route['patient/new']                           = 'patient/pageInsertPatient';
@@ -71,6 +73,7 @@ $route['patient/detail/(:any)']                 = 'patient/pageDetailPatient/$1'
 $route['patient/insert-patient']                = 'patient/insertPatient';
 $route['patient/update-patient']                = 'patient/updatePatient';
 $route['patient/delete-patient']                = 'patient/deletePatient';
+
 // Hendling
 $route['handling']                              = 'handling/pageHandling';
 $route['handling/insert-handling']              = 'handling/insertHandling';
@@ -92,6 +95,7 @@ $route['handling/radiology-reading/preview/(:any)']     = 'handling/pagePreviewR
 $route['handling/radiology-reading/insert-reading']     = 'handling/insertReading';
 $route['handling/radiology-reading/update-reading']     = 'handling/updateReading';
 $route['handling/radiology-reading/delete-reading']     = 'handling/deleteReading';
+
 // Account
 $route['account/admin']                         = 'account/pageAdmin';
 $route['account/insert-admin']                  = 'account/insertAdmin';
@@ -110,6 +114,9 @@ $route['account/insert-radiology-doctor']       = 'account/insertRadiologyDoctor
 $route['account/update-radiology-doctor']       = 'account/editRadiologyDoctor';
 $route['account/reset-pass-radiology-doctor']   = 'account/resetPasswordRadiologyDoctor';
 $route['account/delete-radiology-doctor']       = 'account/deleteRadiologyDoctor';
+
+// Report
+$route['report/service-radiographer']           = 'report/pageServiceRadiographer';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
