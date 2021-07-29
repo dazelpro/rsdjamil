@@ -9,7 +9,8 @@
 </head>
 <script>window.print()</script>
 <body>
-    <h2>Laporan Pendapatan Berdasarkan Tindakan</h2>
+<img style="max-width: 600px; margin-top: 50px; border-bottom: 1px solid black;" src="<?php echo base_url().'assets'?>/images/kop-laporan.png" alt="">
+    <h3>Laporan Pendapatan Berdasarkan Tindakan</h3>
     <table style="width: 100%;" border="1" id="tables">
         <thead>
             <tr>
@@ -37,11 +38,11 @@
     body {
         max-width: 600px;
         text-align: center;
-        margin: auto;
+        margin: auto;        
+        font-family: Lato;
     }
 
     #tables {
-        font-family: Arial, Helvetica, sans-serif;
         border-collapse: collapse;
         width: 100%;
     }

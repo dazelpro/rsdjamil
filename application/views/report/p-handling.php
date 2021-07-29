@@ -8,8 +8,9 @@
     <title>Laporan Pelayanan Radiographer - RSUP Dr. M. Djamil Padang</title>
 </head>
 <script>window.print()</script>
-<body>
-    <h2>Laporan Berdasarkan Jenis Tindakan</h2>
+<body><img style="max-width: 600px; margin-top: 50px; border-bottom: 1px solid black;" src="<?php echo base_url().'assets'?>/images/kop-laporan.png" alt="">
+    
+    <h3>Laporan Berdasarkan Jenis Tindakan</h3>
     <table style="width: 100%;" border="1" id="tables">
         <thead>
             <tr>
@@ -38,10 +39,10 @@
         max-width: 600px;
         text-align: center;
         margin: auto;
+        font-family: lato;
     }
 
     #tables {
-        font-family: Arial, Helvetica, sans-serif;
         border-collapse: collapse;
         width: 100%;
     }
