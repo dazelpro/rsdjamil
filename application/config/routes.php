@@ -127,5 +127,8 @@ $route['report/film-use-print']                 = 'report/printFilm';
 $route['report/room']                           = 'report/pageRoom';
 $route['report/room-print']                     = 'report/printRoom';
 
+$route['report/income']                         = 'report/pageIncome';
+$route['report/income/film']                    = 'report/printIncomeFilm';
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

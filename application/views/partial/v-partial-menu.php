@@ -102,7 +102,7 @@
                     <a href="<?php echo base_url().'report/room'?>">Per Ruangan</a>
                 </li>
                 <li class="submenu-item <?php if($activeMenu == 16):?> active <?php endif;?>">
-                    <a href="#">laporan Pendapatan</a>
+                    <a href="<?php echo base_url().'report/income'?>">laporan Pendapatan</a>
                 </li>
             </ul>
         </li>

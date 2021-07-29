@@ -80,5 +80,22 @@ class Report extends CI_Controller {
         $this->load->view('report/p-room', $data);
     }
 
+    function pageIncome() {
+        $data['activeMenu']     = '16';
+        $this->load->view('report/v-income', $data);
+    }
+
+    function printIncomeFilm() {
+        $data['dataRoom']       = $this->db->query("SELECT 
+            table_film.`size` as name,
+            SUM(table_handling.`amount`) AS qty
+        FROM table_film
+            JOIN table_handling ON table_handling.`film` = table_film.`id`
+            JOIN table_radiological_image ON table_radiological_image.`handling` = table_handling.`id`
+            GROUP BY table_film.`size`
+        ");
+        $this->load->view('report/p-income-film', $data);
+    }
+
 
 }
