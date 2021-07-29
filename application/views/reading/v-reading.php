@@ -119,7 +119,7 @@
                                                     <a href="<?php echo base_url().'handling/radiology-reading/edit/'.$row->id?>" class="btn btn-sm btn-outline-success" data-bs-toggle="modal">Edit Bacaan</a>
                                                 <?php endif;?>
                                             <?php endif;?>
-                                            <?php if($this->session->userdata('access') == 1):?> 
+                                            <?php if($this->session->userdata('access') == 0 || $this->session->userdata('access') == 1):?> 
                                                 <a href="<?php echo base_url().'handling/radiology-reading/preview/'.$row->id?>" class="btn btn-sm btn-outline-success <?php if($row->status == 0):?>disabled<?php endif;?>" data-bs-toggle="modal">Lihat Hasil Bacaan</a>
                                             <?php endif;?>
                                             </td>

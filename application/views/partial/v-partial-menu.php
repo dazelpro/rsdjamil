@@ -47,7 +47,7 @@
                         <a href="<?php echo base_url().'handling/radiology'?>">Citra Radiologi</a>
                     </li>
                 <?php endif;?>
-                <?php if($this->session->userdata('access') == 1):?> 
+                <?php if($this->session->userdata('access') == 0 || $this->session->userdata('access') == 1):?> 
                     <li class="submenu-item <?php if($activeMenu == 7):?> active <?php endif;?>">
                         <a href="<?php echo base_url().'handling/radiology-reading'?>">Hasil Bacaan Citra</a>
                     </li>
