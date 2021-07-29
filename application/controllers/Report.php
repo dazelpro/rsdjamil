@@ -34,5 +34,18 @@ class Report extends CI_Controller {
         $this->load->view('report/p-doctor-radiology', $data);
     }
 
+    function pageHandling() {
+        $data['activeMenu']     = '13';
+        $this->load->view('report/v-handling', $data);
+    }
+
+    function printHandling() {
+        $data['dataRoom']       = $this->db->query("SELECT 
+            name, COUNT(mr_number) AS qty FROM table_radiological_image JOIN table_handling ON table_radiological_image.`handling` = table_handling.`id` JOIN table_radiology_reading ON table_radiology_reading.`radiology` = table_radiological_image.`id`
+            GROUP BY NAME
+        ");
+        $this->load->view('report/p-handling', $data);
+    }
+
 
 }

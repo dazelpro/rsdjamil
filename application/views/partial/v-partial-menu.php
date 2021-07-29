@@ -93,7 +93,7 @@
                     <a href="<?php echo base_url().'report/service-doctor'?>">Pelayanan Dokter</a>
                 </li>
                 <li class="submenu-item <?php if($activeMenu == 13):?> active <?php endif;?>">
-                    <a href="#">Tindakan</a>
+                    <a href="<?php echo base_url().'report/handling'?>">Tindakan</a>
                 </li>
                 <li class="submenu-item <?php if($activeMenu == 14):?> active <?php endif;?>">
                     <a href="#">Penggunaan Film</a>

@@ -120,6 +120,8 @@ $route['report/service-radiographer']           = 'report/pageServiceRadiographe
 $route['report/service-radiographer-print']     = 'report/printServiceRadiographer';
 $route['report/service-doctor']                 = 'report/pageDoctorRadiology';
 $route['report/service-doctor-print']           = 'report/printDoctorRadiology';
+$route['report/handling']                       = 'report/pageHandling';
+$route['report/handling-print']                 = 'report/printHandling';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
