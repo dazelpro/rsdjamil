@@ -81,44 +81,43 @@
                     <div class="page-title">
                         <div class="row">
                             <div class="col-12 col-md-6 order-md-1 order-last">
-                                <h3>Data Pasien</h3>
+                                <h3>Daftar Bacaan Citra</h3>
                             </div>
                         </div>
                     </div>
                     <section class="section">
                         <div class="card">
-                            <div class="card-header">
-                                <a href="<?php echo base_url().'patient/new'?>" class="btn btn-outline-primary">Tambah Pasien</a>
-                            </div>
                             <div class="card-body">
                                 <table class="table table-striped" id="mytable">
                                     <thead>
                                         <tr>
-                                            <th>MR</th>
+                                            <th>Kode</th>
                                             <th>Nama</th>
                                             <th>Dokter Pengirim</th>
-                                            <th>Dokter Radiology</th>
-                                            <?php if($this->session->userdata('access') == 0):?>
-                                            <th>Action</th>
-                                            <?php endif;?>
+                                            <th>Status</th>
+                                            <th>Action  </th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php 
-                                            foreach ($dataPatient->result() as $row):
+                                            foreach ($dataRad->result() as $row):
                                         ?>
                                         <tr>
-                                            <td><?php echo $row->mr_number;?></td>
+                                            <td><?php echo $row->id;?></td>
                                             <td><?php echo $row->name;?></td>
                                             <td><?php echo $row->doctor_name;?></td>
-                                            <td><?php echo $row->doctor_rad;?></td>
-                                            <?php if($this->session->userdata('access') == 0):?>
                                             <td>
-                                                <a href="<?php echo base_url().'patient/edit/'.$row->mr_number?>" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal">Edit</a>
-                                                <!-- <a href="<?php echo base_url().'patient/detail/'.$row->mr_number?>" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal">Detail</a> -->
-                                                <button class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalDelete<?php echo $row->mr_number;?>">Delete</button>
+                                                <?php if($row->status == 0):?>  <span class="badge bg-danger">Belum Dibaca</span> <?php endif;?>
+                                                <?php if($row->status == 1):?>  <span class="badge bg-success">Sudah Dibaca</span> <?php endif;?>
                                             </td>
+                                            <td>
+                                            <?php if($row->status == 0):?>
+                                                <a href="<?php echo base_url().'handling/radiology-reading/input/'.$row->id?>" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal">Input Bacaan</a>
                                             <?php endif;?>
+                                            <?php if($row->status == 1):?>
+                                                <a href="<?php echo base_url().'handling/radiology-reading/edit/'.$row->id?>" class="btn btn-sm btn-outline-success" data-bs-toggle="modal">Edit Bacaan</a>
+                                            <?php endif;?>
+                                            </td>
                                         </tr>
                                         <?php endforeach; ?>
                                     </tbody>
@@ -132,9 +131,9 @@
         </div>
     </div>
     <!-- Delete Modal -->
-    <?php foreach ($dataPatient->result() as $row): ?>
-    <form action="<?php echo site_url('patient/delete-patient');?>" method="post">
-        <div class="modal fade" id="modalDelete<?php echo $row->mr_number;?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <?php foreach ($dataRad->result() as $row): ?>
+    <form action="<?php echo site_url('handling/radiology/delete-radiology');?>" method="post">
+        <div class="modal fade" id="modalDelete<?php echo $row->id;?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable" role="document">
                 <div class="modal-content">
                     <div class="modal-header bg-danger">
@@ -144,8 +143,8 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <input type="hidden" name="code" value="<?php echo $row->mr_number;?>">
-                        <p>Anda ingin menghapus pasien atas nama <b><?php echo $row->name;?></b> ?</p>
+                        <input type="hidden" name="code" value="<?php echo $row->id;?>">
+                        <p>Anda ingin menghapus Citra Radiologi Pasien dengan nama <b><?php echo $row->name;?></b> ?</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">

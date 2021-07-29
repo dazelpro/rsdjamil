@@ -28,10 +28,10 @@ CREATE TABLE `table_account` (
 /*Data for the table `table_account` */
 
 insert  into `table_account`(`id`,`email`,`password`,`role`,`status`,`create_at`) values 
-('R0002','indra@gmail.com','21232f297a57a5a743894a0e4a801fc3',1,'1','2021-07-26 15:01:26'),
-('R0001','ratih@gmail.com','21232f297a57a5a743894a0e4a801fc3',1,'1','2021-07-26 15:04:12'),
-('D0001','ikhsan@gmail.com','21232f297a57a5a743894a0e4a801fc3',2,'1','2021-07-26 15:12:29'),
-('D0002','dani_ramadhan@gmail.com','21232f297a57a5a743894a0e4a801fc3',2,'1','2021-07-26 15:14:10'),
+('R0002','indra@gmail.com','21232f297a57a5a743894a0e4a801fc3',2,'1','2021-07-26 15:01:26'),
+('R0001','ratih@gmail.com','21232f297a57a5a743894a0e4a801fc3',2,'1','2021-07-26 15:04:12'),
+('D0001','ikhsan@gmail.com','21232f297a57a5a743894a0e4a801fc3',1,'1','2021-07-26 15:12:29'),
+('D0002','dani_ramadhan@gmail.com','21232f297a57a5a743894a0e4a801fc3',1,'1','2021-07-26 15:14:10'),
 ('A0001','admin@gmail.com','21232f297a57a5a743894a0e4a801fc3',0,'1','2021-07-18 21:01:32'),
 ('A0002','balmond@gmail.com','21232f297a57a5a743894a0e4a801fc3',0,'1','2021-07-26 12:22:02');
 
@@ -155,14 +155,15 @@ CREATE TABLE `table_radiological_image` (
   `mr_number` char(10) DEFAULT NULL,
   `handling` char(10) DEFAULT NULL,
   `file` text DEFAULT NULL,
+  `status` int(11) DEFAULT 0 COMMENT '0 = Belum baca',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `table_radiological_image` */
 
-insert  into `table_radiological_image`(`id`,`mr_number`,`handling`,`file`) values 
-('RAD0001','MR0002','T0002','9e8beb039c9da04bfb9be669cacc6594.jpeg'),
-('RAD0002','MR0001','T0001','b3aaa7cce3e7c2f5e9da5bf6fb977d15.jpeg');
+insert  into `table_radiological_image`(`id`,`mr_number`,`handling`,`file`,`status`) values 
+('RAD0002','MR0001','T0001','b3aaa7cce3e7c2f5e9da5bf6fb977d15.jpeg',0),
+('RAD0003','MR0002','T0002','4b86f435cbdb83698f004369c9411594.jpeg',0);
 
 /*Table structure for table `table_radiology_reading` */
 
