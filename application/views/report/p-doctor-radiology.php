@@ -15,8 +15,10 @@
     <table style="width: 100%;" border="1" id="tables">
         <thead>
             <tr>
-                <th>Nama Kinerja Pelayanan</th>
+                <th>Pelayanan</th>
                 <th>Jumlah Pasien</th>
+                <th>Dokter Pengantar</th>
+                <th>Dokter Radiologi</th>
             </tr>
         </thead>
         <tbody>
@@ -31,6 +33,12 @@
                 <td>
                     <?php echo $row->qty;?>
                 </td>
+                <td>
+                    <?php echo $row->name_doctor;?>
+                </td>
+                <td>
+                    <?php echo $row->name_rad;?>
+                </td>
             </tr>
             <?php endforeach; ?>
         </tbody>
@@ -38,7 +46,7 @@
 </body>
 <style>
     body {
-        max-width: 600px;
+        max-width: 800px;
         text-align: center;
         margin: auto;
         font-family: lato;

@@ -17,7 +17,34 @@ class Report extends CI_Controller {
     }
 
     function printServiceRadiographer() {
-        $data['dataRoom']       = $this->db->query("SELECT name, COUNT(mr_number) AS qty FROM table_radiological_image JOIN table_handling ON table_radiological_image.`handling` = table_handling.`id` GROUP BY name");
+        // $data['dataRoom']       = $this->db->query("SELECT 
+        //     name, COUNT(mr_number) AS qty FROM table_radiological_image JOIN table_handling ON table_radiological_image.`handling` = table_handling.`id` GROUP BY name
+        // ");
+        // $data['dataRoom']       = $this->db->query("SELECT 
+        //     table_handling.name, 
+        //     COUNT(table_patient.mr_number) AS qty 
+        //     ,table_doctor.`name` AS name_doctor
+        //     ,table_doctor_radiology.`name` AS name_rad
+        // FROM table_radiological_image 
+        //     JOIN table_handling ON table_radiological_image.`handling` = table_handling.`id`
+        //     JOIN table_patient ON table_patient.`mr_number` = table_radiological_image.`mr_number`
+        //     JOIN table_doctor ON table_doctor.`id` = table_patient.`doctor`
+        //     JOIN table_doctor_radiology ON table_doctor_radiology.`id` = table_patient.`radiology_doctor`
+        //     GROUP BY table_handling.`name`
+        // ");
+        $data['dataRoom']       = $this->db->query("SELECT 
+            table_handling.name, 
+            COUNT(table_patient.mr_number) AS qty
+            ,table_admin.`name` AS name_admin
+            ,table_doctor_radiology.`name` AS name_rad
+        FROM table_radiological_image 
+            JOIN table_handling ON table_radiological_image.`handling` = table_handling.`id` 
+            JOIN table_radiology_reading ON table_radiology_reading.`radiology` = table_radiological_image.`id`
+            JOIN table_patient ON table_patient.`mr_number` = table_radiological_image.`mr_number`
+            JOIN table_admin ON table_admin.`id` = table_radiological_image.`admin`
+            JOIN table_doctor_radiology ON table_doctor_radiology.`id` = table_patient.`radiology_doctor`
+            GROUP BY NAME
+        ");
         $this->load->view('report/p-service-radiographer', $data);
     }
 
@@ -27,9 +54,22 @@ class Report extends CI_Controller {
     }
 
     function printDoctorRadiology() {
+        // $data['dataRoom']       = $this->db->query("SELECT 
+        //     name, COUNT(mr_number) AS qty FROM table_radiological_image JOIN table_handling ON table_radiological_image.`handling` = table_handling.`id` JOIN table_radiology_reading ON table_radiology_reading.`radiology` = table_radiological_image.`id`
+        //     GROUP BY NAME
+        // ");
         $data['dataRoom']       = $this->db->query("SELECT 
-            name, COUNT(mr_number) AS qty FROM table_radiological_image JOIN table_handling ON table_radiological_image.`handling` = table_handling.`id` JOIN table_radiology_reading ON table_radiology_reading.`radiology` = table_radiological_image.`id`
-            GROUP BY NAME
+            table_handling.name, 
+            COUNT(table_patient.mr_number) AS qty
+            ,table_doctor.`name` AS name_doctor
+            ,table_doctor_radiology.`name` AS name_rad
+        FROM table_radiological_image 
+            JOIN table_handling ON table_radiological_image.`handling` = table_handling.`id` 
+            JOIN table_radiology_reading ON table_radiology_reading.`radiology` = table_radiological_image.`id`
+            JOIN table_patient ON table_patient.`mr_number` = table_radiological_image.`mr_number`
+            JOIN table_doctor ON table_doctor.`id` = table_patient.`doctor`
+            JOIN table_doctor_radiology ON table_doctor_radiology.`id` = table_patient.`radiology_doctor`
+            GROUP BY table_handling.name
         ");
         $this->load->view('report/p-doctor-radiology', $data);
     }

@@ -167,16 +167,17 @@ CREATE TABLE `table_radiological_image` (
   `file` text DEFAULT NULL,
   `status` int(11) DEFAULT 0 COMMENT '0 = Belum baca',
   `create_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `admin` char(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `table_radiological_image` */
 
-insert  into `table_radiological_image`(`id`,`mr_number`,`handling`,`file`,`status`,`create_at`) values 
-('RAD0002','MR0001','T0001','b3aaa7cce3e7c2f5e9da5bf6fb977d15.jpeg',1,'2021-07-29 16:12:29'),
-('RAD0003','MR0002','T0002','4b86f435cbdb83698f004369c9411594.jpeg',0,'2021-07-29 16:12:29'),
-('RAD0004','MR0003','T0002','a322c0d54534b6e09958a9d4e86cfc0b.jpeg',1,'2021-07-29 16:12:29'),
-('RAD0005','MR0005','T0003','8582b3f4cde893b5c446e83f75ec5f62.jpeg',0,'2021-07-29 22:53:27');
+insert  into `table_radiological_image`(`id`,`mr_number`,`handling`,`file`,`status`,`create_at`,`admin`) values 
+('RAD0002','MR0001','T0001','b3aaa7cce3e7c2f5e9da5bf6fb977d15.jpeg',1,'2021-07-29 16:12:29','A0001'),
+('RAD0003','MR0002','T0002','4b86f435cbdb83698f004369c9411594.jpeg',0,'2021-07-29 16:12:29','A0001'),
+('RAD0004','MR0003','T0002','a322c0d54534b6e09958a9d4e86cfc0b.jpeg',1,'2021-07-29 16:12:29','A0001'),
+('RAD0005','MR0005','T0003','8582b3f4cde893b5c446e83f75ec5f62.jpeg',0,'2021-07-29 22:53:27','A0001');
 
 /*Table structure for table `table_radiology_reading` */
 
