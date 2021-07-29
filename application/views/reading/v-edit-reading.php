@@ -84,11 +84,11 @@
                     <div class="page-title">
                         <div class="row">
                             <div class="col-12 col-md-6 order-md-1 order-last">
-                                <h3>Input Bacaan Citra Radiologi</h3>
+                                <h3>Edit Bacaan Citra Radiologi</h3>
                             </div>
                         </div>
                     </div>
-                    <form action="<?php echo site_url('handling/radiology-reading/insert-reading');?>" method="POST">
+                    <form action="<?php echo site_url('handling/radiology-reading/update-reading');?>" method="POST">
                         <section class="section">
                             <div class="card">
                                 <div class="card-body">
@@ -134,10 +134,10 @@
                                             <div class="divider-text">Input Pembacaan</div>
                                         </div>
                                         <div class="col-12">
-                                            <textarea id="hint" name="desc"></textarea>
+                                            <textarea id="hint" name="desc"> <?php echo $desc;?></textarea>
                                             <br>
                                             <div class="input-group mb-3">
-                                                <button type="submit" class="btn btn-primary">Simpan Hasil Bacaan</button>
+                                                <button type="submit" class="btn btn-primary">Update Hasil Bacaan</button>
                                             </div>
                                         </div>
                                     </div>

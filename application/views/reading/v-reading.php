@@ -111,7 +111,12 @@
                                                 <?php if($row->status == 1):?>  <span class="badge bg-success">Sudah Dibaca</span> <?php endif;?>
                                             </td>
                                             <td>
+                                            <?php if($row->status == 0):?>
                                                 <a href="<?php echo base_url().'handling/radiology-reading/input/'.$row->id?>" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal">Input Bacaan</a>
+                                            <?php endif;?>
+                                            <?php if($row->status == 1):?>
+                                                <a href="<?php echo base_url().'handling/radiology-reading/edit/'.$row->id?>" class="btn btn-sm btn-outline-success" data-bs-toggle="modal">Edit Bacaan</a>
+                                            <?php endif;?>
                                             </td>
                                         </tr>
                                         <?php endforeach; ?>
