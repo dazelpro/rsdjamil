@@ -135,7 +135,7 @@
                                             <div id="hint" name="desc"> <?php echo $desc;?></div>
                                             <br>
                                             <div class="input-group mb-3">
-                                                <button type="button" class="btn btn-primary">Cetak Hasil</button>
+                                                <a href="<?php echo base_url().'report/preview-print/'.$row->id;?>" target="_blank" class="btn btn-primary">Cetak Hasil</a>
                                             </div>
                                         </div>
                                     </div>

@@ -131,6 +131,7 @@ $route['report/income']                         = 'report/pageIncome';
 $route['report/income/film']                    = 'report/printIncomeFilm';
 $route['report/income/handling']                = 'report/printIncomeHandling';
 $route['report/income/room']                    = 'report/printIncomeRoom';
+$route['report/preview-print/(:any)']           = 'report/printPreview/$1';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
