@@ -149,9 +149,6 @@ CREATE TABLE `table_patient` (
 
 /*Data for the table `table_patient` */
 
-insert  into `table_patient`(`mr_number`,`name`,`place_of_birth`,`date_of_birth`,`gender`,`room`,`doctor`,`radiology_doctor`) values 
-('MR0001','Aditia','Padang','2021-12-31','Pria','R0002','D0003','R0001');
-
 /*Table structure for table `table_radiological_image` */
 
 DROP TABLE IF EXISTS `table_radiological_image`;
@@ -171,10 +168,6 @@ CREATE TABLE `table_radiological_image` (
 
 /*Data for the table `table_radiological_image` */
 
-insert  into `table_radiological_image`(`id`,`mr_number`,`handling`,`file`,`status`,`create_at`,`admin`) values 
-('RADA6iv4wK','MR0001','T0001','a05f94a2421032d705bc4d75f13fdd47.jpeg',1,'2021-07-30 18:46:15','A0001'),
-('RADRBS4oj6',NULL,'T0003','fbd72c149f9b76633a12fa170499ef04.jpeg',1,'2021-07-30 18:41:10','A0001');
-
 /*Table structure for table `table_radiology_reading` */
 
 DROP TABLE IF EXISTS `table_radiology_reading`;
@@ -187,10 +180,6 @@ CREATE TABLE `table_radiology_reading` (
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `table_radiology_reading` */
-
-insert  into `table_radiology_reading`(`id`,`radiology`,`description`) values 
-(8,'RADRBS4oj6',' <p>Dari hasil bacaan ini dapat disimpulkan bahwa pasien menderita asam urat.</p>'),
-(9,'RADA6iv4wK','<p>tes</p>');
 
 /*Table structure for table `table_room` */
 
