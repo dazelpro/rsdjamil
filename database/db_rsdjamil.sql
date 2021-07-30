@@ -127,9 +127,9 @@ CREATE TABLE `table_handling` (
 /*Data for the table `table_handling` */
 
 insert  into `table_handling`(`id`,`name`,`film`,`amount`) values 
-('T0001','CT Scan','F0001','50000'),
-('T0002','Rontgen','F0002','190000'),
-('T0003','MRI Scan','F0003','300000');
+('T0001','CT Scan','F0001','900000'),
+('T0002','Rontgen','F0002','130000'),
+('T0003','MRI Scan','F0003','1300000');
 
 /*Table structure for table `table_patient` */
 
@@ -148,6 +148,9 @@ CREATE TABLE `table_patient` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `table_patient` */
+
+insert  into `table_patient`(`mr_number`,`name`,`place_of_birth`,`date_of_birth`,`gender`,`room`,`doctor`,`radiology_doctor`) values 
+('MR0001','Andi Malaria','Padang','1992-07-22','Pria','R0001','D0003','R0003');
 
 /*Table structure for table `table_radiological_image` */
 
@@ -168,6 +171,10 @@ CREATE TABLE `table_radiological_image` (
 
 /*Data for the table `table_radiological_image` */
 
+insert  into `table_radiological_image`(`id`,`mr_number`,`handling`,`file`,`status`,`create_at`,`admin`) values 
+('RAD2mfSYrZ','MR0001','T0002','7fff6ad0d73e98fb47016bdad3f4bb13.jpeg',1,'2021-07-30 19:19:22','A0001'),
+('RADNnyPoRE','MR0001','T0001','24b7f48f42ce7100bf0c52a933a1e256.jpeg',0,'2021-07-30 19:19:06','A0001');
+
 /*Table structure for table `table_radiology_reading` */
 
 DROP TABLE IF EXISTS `table_radiology_reading`;
@@ -177,9 +184,12 @@ CREATE TABLE `table_radiology_reading` (
   `radiology` char(10) DEFAULT NULL,
   `description` longtext DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `table_radiology_reading` */
+
+insert  into `table_radiology_reading`(`id`,`radiology`,`description`) values 
+(10,'RAD2mfSYrZ','<p>OK</p>');
 
 /*Table structure for table `table_room` */
 

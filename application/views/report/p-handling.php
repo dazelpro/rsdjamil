@@ -8,13 +8,13 @@
     <title>Laporan Pelayanan Radiographer - RSUP Dr. M. Djamil Padang</title>
 </head>
 <script>window.print()</script>
-<body><img style="max-width: 600px; margin-top: 50px; border-bottom: 1px solid black;" src="<?php echo base_url().'assets'?>/images/kop-laporan.png" alt="">
-    
+<body>
+    <img style="max-width: 600px; margin-top: 50px; border-bottom: 1px solid black;" src="<?php echo base_url().'assets'?>/images/kop-laporan.png" alt="">
     <h3>Laporan Berdasarkan Jenis Tindakan</h3>
     <table style="width: 100%;" border="1" id="tables">
         <thead>
             <tr>
-                <th>Nama Jenis Tindakan</th>
+                <th>Jenis Tindakan</th>
                 <th>Jumlah Pasien</th>
             </tr>
         </thead>

@@ -16,7 +16,7 @@
         <thead>
             <tr>
                 <th>Pelayanan</th>
-                <th>Jumlah Pasien</th>
+                <th>Jumlah Pelayanan</th>
                 <th>Admin Radiologi</th>
                 <th>Dokter Pembaca</th>
             </tr>
