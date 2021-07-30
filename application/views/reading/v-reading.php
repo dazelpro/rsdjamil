@@ -94,6 +94,7 @@
                                             <th>Kode</th>
                                             <th>Nama</th>
                                             <th>Dokter Pengirim</th>
+                                            <th>Dokter Radiologi</th>
                                             <th>Status</th>
                                             <th>Action  </th>
                                         </tr>
@@ -106,6 +107,7 @@
                                             <td><?php echo $row->id;?></td>
                                             <td><?php echo $row->name;?></td>
                                             <td><?php echo $row->doctor_name;?></td>
+                                            <td><?php echo $row->doctor_rad;?></td>
                                             <td>
                                                 <?php if($row->status == 0):?>  <span class="badge bg-danger">Belum Dibaca</span> <?php endif;?>
                                                 <?php if($row->status == 1):?>  <span class="badge bg-success">Sudah Dibaca</span> <?php endif;?>
