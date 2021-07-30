@@ -150,11 +150,7 @@ CREATE TABLE `table_patient` (
 /*Data for the table `table_patient` */
 
 insert  into `table_patient`(`mr_number`,`name`,`place_of_birth`,`date_of_birth`,`gender`,`room`,`doctor`,`radiology_doctor`) values 
-('MR0001','Anita Hara','Jakarta','1991-01-06','Wanita','R0002','D0001','R0002'),
-('MR0002','Muhammad Faizin','Alahan Panjang','1997-06-30','Pria','R0001','D0001','R0001'),
-('MR0003','Apridestio Fajri','Solo','1999-09-01','Pria','R0001','D0003','R0003'),
-('MR0004','Prima Praja','Bukittinggi','1985-12-31','Pria','R0001','D0002','R0003'),
-('MR0005','Yulia Herlina Putri','Padang','1997-01-01','Pria','R0002','D0003','R0003');
+('MR0001','Aditia','Padang','2021-12-31','Pria','R0002','D0003','R0001');
 
 /*Table structure for table `table_radiological_image` */
 
@@ -168,16 +164,16 @@ CREATE TABLE `table_radiological_image` (
   `status` int(11) DEFAULT 0 COMMENT '0 = Belum baca',
   `create_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `admin` char(10) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `mr_number` (`mr_number`),
+  CONSTRAINT `table_radiological_image_ibfk_1` FOREIGN KEY (`mr_number`) REFERENCES `table_patient` (`mr_number`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `table_radiological_image` */
 
 insert  into `table_radiological_image`(`id`,`mr_number`,`handling`,`file`,`status`,`create_at`,`admin`) values 
-('RAD0002','MR0001','T0001','b3aaa7cce3e7c2f5e9da5bf6fb977d15.jpeg',1,'2021-07-29 16:12:29','A0001'),
-('RAD0003','MR0002','T0002','4b86f435cbdb83698f004369c9411594.jpeg',0,'2021-07-29 16:12:29','A0001'),
-('RAD0004','MR0003','T0002','a322c0d54534b6e09958a9d4e86cfc0b.jpeg',1,'2021-07-29 16:12:29','A0001'),
-('RAD0005','MR0005','T0003','8582b3f4cde893b5c446e83f75ec5f62.jpeg',0,'2021-07-29 22:53:27','A0001');
+('RADA6iv4wK','MR0001','T0001','a05f94a2421032d705bc4d75f13fdd47.jpeg',1,'2021-07-30 18:46:15','A0001'),
+('RADRBS4oj6',NULL,'T0003','fbd72c149f9b76633a12fa170499ef04.jpeg',1,'2021-07-30 18:41:10','A0001');
 
 /*Table structure for table `table_radiology_reading` */
 
@@ -188,13 +184,13 @@ CREATE TABLE `table_radiology_reading` (
   `radiology` char(10) DEFAULT NULL,
   `description` longtext DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `table_radiology_reading` */
 
 insert  into `table_radiology_reading`(`id`,`radiology`,`description`) values 
-(6,'RAD0002','   <p>Dilihat dari hasil CT Scan, dapat disimpulkan bahwa pasien ini tidak dapat di selamatkan.</p>'),
-(7,'RAD0004','<p>Hasil rontgen nya menunjukan bahwa pasien terkena patah tulang yang lumayan parah. Harus segera ditindak lanjuti</p>');
+(8,'RADRBS4oj6',' <p>Dari hasil bacaan ini dapat disimpulkan bahwa pasien menderita asam urat.</p>'),
+(9,'RADA6iv4wK','<p>tes</p>');
 
 /*Table structure for table `table_room` */
 

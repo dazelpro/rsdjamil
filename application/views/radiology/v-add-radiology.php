@@ -98,7 +98,8 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="disabledInput">Kode</label>
-                                                <input type="text" name="code" value="RAD<?php echo sprintf("%04s", $code)?>" class="form-control" id="disabledInput" readonly required>
+                                                <input type="text" name="code" value="RAD<?php echo random_string('alnum', 7)?>" class="form-control" id="disabledInput" readonly required>
+                                                <input type="hidden" name="user" value="<?php echo $this->session->userdata('id');?>">
                                             </div>
                                             <label for="disabledInput">Tindakan</label>
                                             <div class="input-group mb-3">
