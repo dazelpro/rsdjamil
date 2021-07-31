@@ -98,7 +98,7 @@
                                         <tr>
                                             <th>MR</th>
                                             <th>Nama</th>
-                                            <th>Dokter Pengirim</th>
+                                            <th>Admin Radiologi</th>
                                             <th>Dokter Radiology</th>
                                             <?php if($this->session->userdata('access') == 0):?>
                                             <th>Action</th>

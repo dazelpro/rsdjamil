@@ -12,7 +12,15 @@ class Patient extends CI_Controller {
 	}
 
     function pagePatient() {
-        $data['dataPatient']    = $this->db->query("SELECT table_patient.`mr_number`, table_patient.`name`, table_doctor.`name` AS doctor_name, table_doctor_radiology.`name` AS doctor_rad FROM table_patient JOIN table_doctor ON table_patient.`doctor` = table_doctor.`id` JOIN table_doctor_radiology ON table_doctor_radiology.`id` = table_patient.`radiology_doctor`");
+        $data['dataPatient']    = $this->db->query("SELECT 
+            table_patient.`mr_number`, 
+            table_patient.`name`, 
+            table_admin.`name` AS doctor_name, 
+            table_doctor_radiology.`name` AS doctor_rad 
+        FROM table_patient 
+            JOIN table_admin ON table_patient.`admin` = table_admin.`id` 
+            JOIN table_doctor_radiology ON table_doctor_radiology.`id` = table_patient.`radiology_doctor`
+        ");
         $data['activeMenu']     = '4';
         $this->load->view('patient/v-patient', $data);
     }
@@ -48,7 +56,8 @@ class Patient extends CI_Controller {
 		$room                   = $this->input->post('room');
 		$doctor                 = $this->input->post('doctor');
 		$doctorRad              = $this->input->post('doctorRad');
-		$this->db->query("INSERT INTO table_patient VALUES ('$mr','$name','$place','$birth','$gender','$room','$doctor','$doctorRad')");
+		$admin                  = $this->session->userdata('id');
+		$this->db->query("INSERT INTO table_patient VALUES ('$mr','$name','$place','$birth','$gender','$room','$doctor','$doctorRad','$admin')");
 		redirect('patient');
     }
 
