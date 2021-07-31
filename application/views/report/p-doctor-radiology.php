@@ -17,7 +17,7 @@
             <tr>
                 <th>Pelayanan</th>
                 <th>Jumlah Pelayanan</th>
-                <th>Dokter Pengantar</th>
+                <th>Admin Radiologi</th>
                 <th>Dokter Radiologi</th>
             </tr>
         </thead>

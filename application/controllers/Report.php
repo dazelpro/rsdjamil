@@ -60,13 +60,13 @@ class Report extends CI_Controller {
         $data['dataRoom']       = $this->db->query("SELECT 
             table_handling.name, 
             COUNT(table_patient.mr_number) AS qty
-            ,table_doctor.`name` AS name_doctor
+            ,table_admin.`name` AS name_doctor
             ,table_doctor_radiology.`name` AS name_rad
         FROM table_radiological_image 
             JOIN table_handling ON table_radiological_image.`handling` = table_handling.`id` 
             JOIN table_radiology_reading ON table_radiology_reading.`radiology` = table_radiological_image.`id`
             JOIN table_patient ON table_patient.`mr_number` = table_radiological_image.`mr_number`
-            JOIN table_doctor ON table_doctor.`id` = table_patient.`doctor`
+            JOIN table_admin ON table_admin.`id` = table_patient.`admin`
             JOIN table_doctor_radiology ON table_doctor_radiology.`id` = table_patient.`radiology_doctor`
             GROUP BY table_handling.name
         ");
