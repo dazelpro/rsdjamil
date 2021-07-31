@@ -144,13 +144,14 @@ CREATE TABLE `table_patient` (
   `room` char(10) DEFAULT NULL,
   `doctor` char(10) DEFAULT NULL,
   `radiology_doctor` char(10) DEFAULT NULL,
+  `admin` char(10) DEFAULT NULL,
   PRIMARY KEY (`mr_number`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `table_patient` */
 
-insert  into `table_patient`(`mr_number`,`name`,`place_of_birth`,`date_of_birth`,`gender`,`room`,`doctor`,`radiology_doctor`) values 
-('MR0001','Andi Malaria','Padang','1992-07-22','Pria','R0001','D0003','R0003');
+insert  into `table_patient`(`mr_number`,`name`,`place_of_birth`,`date_of_birth`,`gender`,`room`,`doctor`,`radiology_doctor`,`admin`) values 
+('MR0001','Andi Malaria','Padang','1992-07-22','Pria','R0001','D0003','R0003','A0001');
 
 /*Table structure for table `table_radiological_image` */
 
