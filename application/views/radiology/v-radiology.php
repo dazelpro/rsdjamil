@@ -96,7 +96,7 @@
                                         <tr>
                                             <th>Kode</th>
                                             <th>Nama</th>
-                                            <th>Dokter Pengirim</th>
+                                            <th>Admin Radiologi</th>
                                             <th>Dokter Radiology</th>
                                             <th>Action  </th>
                                         </tr>

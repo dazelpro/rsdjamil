@@ -53,10 +53,10 @@ class Handling extends CI_Controller {
 	// Radiology
 	function pageRadiology() {
         $data['dataRad']   		= $this->db->query("SELECT 
-            table_radiological_image.id, table_patient.name, table_doctor.`name` as doctor_name, table_doctor_radiology.`name` as doctor_rad
+            table_radiological_image.id, table_patient.name, table_admin.`name` AS doctor_name, table_doctor_radiology.`name` AS doctor_rad
         FROM table_radiological_image
             JOIN table_patient ON table_radiological_image.`mr_number` = table_patient.`mr_number`
-            JOIN table_doctor ON table_patient.`doctor` = table_doctor.`id`
+            JOIN table_admin ON table_patient.`admin` = table_admin.`id`
             JOIN table_doctor_radiology ON table_patient.`radiology_doctor` = table_doctor_radiology.`id`
         ");
         $data['activeMenu']     = '6';
@@ -149,12 +149,12 @@ class Handling extends CI_Controller {
         $data['dataRad']   		= $this->db->query("SELECT 
             table_radiological_image.id, 
             table_patient.name, 
-            table_doctor.`name` as doctor_name, 
+            table_admin.`name` as doctor_name, 
             table_doctor_radiology.`name` as doctor_rad,
             table_radiological_image.status
         FROM table_radiological_image
             JOIN table_patient ON table_radiological_image.`mr_number` = table_patient.`mr_number`
-            JOIN table_doctor ON table_patient.`doctor` = table_doctor.`id`
+            JOIN table_admin ON table_patient.`admin` = table_admin.`id`
             JOIN table_doctor_radiology ON table_patient.`radiology_doctor` = table_doctor_radiology.`id`
             $queryCondition
         ");

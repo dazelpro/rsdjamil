@@ -93,7 +93,7 @@
                                         <tr>
                                             <th>Kode</th>
                                             <th>Nama</th>
-                                            <th>Dokter Pengirim</th>
+                                            <th>Admin Radiologi</th>
                                             <th>Dokter Radiologi</th>
                                             <th>Status</th>
                                             <th>Action  </th>
