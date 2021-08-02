@@ -40,24 +40,24 @@ class Authorization extends CI_Controller {
                         }
                     } else {
                         $url=base_url('login');
-                        echo $this->session->set_flashdata('msg','<span onclick="this.parentElement.style.display=`none`" class="w3-button w3-large w3-display-topright">&times;</span>
-                        <h3>Uupps!</h3>
-                        <p>Akun kamu telah di blokir. Silahkan hubungi admin.</p>');
+                        echo $this->session->set_flashdata('msg','<div class="alert alert-danger border-danger">
+                        <strong>Login failed!</strong> Account blocked.
+                        </div>');
                         redirect($url);
                     }
                 } else {
                     $url=base_url('login');
-                    echo $this->session->set_flashdata('msg','<span onclick="this.parentElement.style.display=`none`" class="w3-button w3-large w3-display-topright">&times;</span>
-                        <h3>Uupps!</h3>
-                        <p>Password yang kamu masukan salah.</p>');
+                    echo $this->session->set_flashdata('msg','<div class="alert alert-danger border-danger">
+                    <strong>Login failed!</strong> Password wrong.
+                    </div>');
                     redirect($url);
                 }
 
             } else {
                 $url=base_url('login');
-                echo $this->session->set_flashdata('msg','<span onclick="this.parentElement.style.display=`none`" class="w3-button w3-large w3-display-topright">&times;</span>
-                <h3>Uupps!</h3>
-                <p>Email yang kamu masukan salah.</p>');
+                echo $this->session->set_flashdata('msg','<div class="alert alert-danger border-danger">
+                <strong>Login failed!</strong> Email not found.
+                </div>');
                 redirect($url);
             }
         } if ($select == 1) { //Dokter
@@ -83,24 +83,24 @@ class Authorization extends CI_Controller {
                         }
                     } else {
                         $url=base_url('login');
-                        echo $this->session->set_flashdata('msg','<span onclick="this.parentElement.style.display=`none`" class="w3-button w3-large w3-display-topright">&times;</span>
-                        <h3>Uupps!</h3>
-                        <p>Akun kamu telah di blokir. Silahkan hubungi admin.</p>');
+                        echo $this->session->set_flashdata('msg','<div class="alert alert-danger border-danger">
+                        <strong>Login failed!</strong> Account blocked.
+                        </div>');
                         redirect($url);
                     }
                 } else {
                     $url=base_url('login');
-                    echo $this->session->set_flashdata('msg','<span onclick="this.parentElement.style.display=`none`" class="w3-button w3-large w3-display-topright">&times;</span>
-                        <h3>Uupps!</h3>
-                        <p>Password yang kamu masukan salah.</p>');
+                    echo $this->session->set_flashdata('msg','<div class="alert alert-danger border-danger">
+                    <strong>Login failed!</strong> Password wrong.
+                    </div>');
                     redirect($url);
                 }
 
             } else {
                 $url=base_url('login');
-                echo $this->session->set_flashdata('msg','<span onclick="this.parentElement.style.display=`none`" class="w3-button w3-large w3-display-topright">&times;</span>
-                <h3>Uupps!</h3>
-                <p>Email yang kamu masukan salah.</p>');
+                echo $this->session->set_flashdata('msg','<div class="alert alert-danger border-danger">
+                <strong>Login failed!</strong> Email not found.
+                </div>');
                 redirect($url);
             }
         } if ($select == 2) { // Radiologi
@@ -124,24 +124,24 @@ class Authorization extends CI_Controller {
                         }
                     } else {
                         $url=base_url('login');
-                        echo $this->session->set_flashdata('msg','<span onclick="this.parentElement.style.display=`none`" class="w3-button w3-large w3-display-topright">&times;</span>
-                        <h3>Uupps!</h3>
-                        <p>Akun kamu telah di blokir. Silahkan hubungi admin.</p>');
+                        echo $this->session->set_flashdata('msg','<div class="alert alert-danger border-danger">
+                        <strong>Login failed!</strong> Account blocked.
+                        </div>');
                         redirect($url);
                     }
                 } else {
                     $url=base_url('login');
-                    echo $this->session->set_flashdata('msg','<span onclick="this.parentElement.style.display=`none`" class="w3-button w3-large w3-display-topright">&times;</span>
-                        <h3>Uupps!</h3>
-                        <p>Password yang kamu masukan salah.</p>');
+                    echo $this->session->set_flashdata('msg','<div class="alert alert-danger border-danger">
+                    <strong>Login failed!</strong> Password wrong.
+                    </div>');
                     redirect($url);
                 }
 
             } else {
                 $url=base_url('login');
-                echo $this->session->set_flashdata('msg','<span onclick="this.parentElement.style.display=`none`" class="w3-button w3-large w3-display-topright">&times;</span>
-                <h3>Uupps!</h3>
-                <p>Email yang kamu masukan salah.</p>');
+                echo $this->session->set_flashdata('msg','<div class="alert alert-danger border-danger">
+                <strong>Login failed!</strong> Email not found.
+                </div>');
                 redirect($url);
             }
         }
