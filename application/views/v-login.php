@@ -44,8 +44,9 @@
                             </fieldset>
                         </div>
                         <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5">Log in</button>
-                        <br><br>
-                        <?php echo $this->session->flashdata('msg');?>
+                        <div style="margin-top: 30px">
+                            <?php echo $this->session->flashdata('msg');?>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -55,5 +56,5 @@
         </div>
     </div>
 </body>
-
+<script src="<?php echo base_url().'assets'?>/js/bootstrap.bundle.min.js"></script>
 </html>

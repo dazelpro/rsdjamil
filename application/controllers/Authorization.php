@@ -40,23 +40,29 @@ class Authorization extends CI_Controller {
                         }
                     } else {
                         $url=base_url('login');
-                        echo $this->session->set_flashdata('msg','<div class="alert alert-danger border-danger">
-                        <strong>Login failed!</strong> Account blocked.
+                        echo $this->session->set_flashdata('msg','
+                        <div class="alert alert-danger alert-dismissible show fade">
+                            Account blocked
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>');
                         redirect($url);
                     }
                 } else {
                     $url=base_url('login');
-                    echo $this->session->set_flashdata('msg','<div class="alert alert-danger border-danger">
-                    <strong>Login failed!</strong> Password wrong.
+                    echo $this->session->set_flashdata('msg','
+                    <div class="alert alert-danger alert-dismissible show fade">
+                        Password wrong
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>');
                     redirect($url);
                 }
 
             } else {
                 $url=base_url('login');
-                echo $this->session->set_flashdata('msg','<div class="alert alert-danger border-danger">
-                <strong>Login failed!</strong> Email not found.
+                echo $this->session->set_flashdata('msg','
+                <div class="alert alert-danger alert-dismissible show fade">
+                    Email not found
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>');
                 redirect($url);
             }
@@ -83,23 +89,29 @@ class Authorization extends CI_Controller {
                         }
                     } else {
                         $url=base_url('login');
-                        echo $this->session->set_flashdata('msg','<div class="alert alert-danger border-danger">
-                        <strong>Login failed!</strong> Account blocked.
+                        echo $this->session->set_flashdata('msg','
+                        <div class="alert alert-danger alert-dismissible show fade">
+                            Account blocked
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>');
                         redirect($url);
                     }
                 } else {
                     $url=base_url('login');
-                    echo $this->session->set_flashdata('msg','<div class="alert alert-danger border-danger">
-                    <strong>Login failed!</strong> Password wrong.
+                    echo $this->session->set_flashdata('msg','
+                    <div class="alert alert-danger alert-dismissible show fade">
+                        Password wrong
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>');
                     redirect($url);
                 }
 
             } else {
                 $url=base_url('login');
-                echo $this->session->set_flashdata('msg','<div class="alert alert-danger border-danger">
-                <strong>Login failed!</strong> Email not found.
+                echo $this->session->set_flashdata('msg','
+                <div class="alert alert-danger alert-dismissible show fade">
+                    Email not found
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>');
                 redirect($url);
             }
@@ -124,23 +136,29 @@ class Authorization extends CI_Controller {
                         }
                     } else {
                         $url=base_url('login');
-                        echo $this->session->set_flashdata('msg','<div class="alert alert-danger border-danger">
-                        <strong>Login failed!</strong> Account blocked.
+                        echo $this->session->set_flashdata('msg','
+                        <div class="alert alert-danger alert-dismissible show fade">
+                            Account blocked
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>');
                         redirect($url);
                     }
                 } else {
                     $url=base_url('login');
-                    echo $this->session->set_flashdata('msg','<div class="alert alert-danger border-danger">
-                    <strong>Login failed!</strong> Password wrong.
+                    echo $this->session->set_flashdata('msg','
+                    <div class="alert alert-danger alert-dismissible show fade">
+                        Password wrong
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>');
                     redirect($url);
                 }
 
             } else {
                 $url=base_url('login');
-                echo $this->session->set_flashdata('msg','<div class="alert alert-danger border-danger">
-                <strong>Login failed!</strong> Email not found.
+                echo $this->session->set_flashdata('msg','
+                <div class="alert alert-danger alert-dismissible show fade">
+                    Email not found
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>');
                 redirect($url);
             }
