@@ -80,8 +80,13 @@ class Report extends CI_Controller {
 
     function printHandling() {
         $data['dataRoom']       = $this->db->query("SELECT 
-            name, COUNT(mr_number) AS qty FROM table_radiological_image JOIN table_handling ON table_radiological_image.`handling` = table_handling.`id` JOIN table_radiology_reading ON table_radiology_reading.`radiology` = table_radiological_image.`id`
-            GROUP BY NAME
+                table_handling.name, 
+                COUNT(table_radiological_image.mr_number) AS qty 
+        FROM table_radiological_image 
+            JOIN table_handling ON table_radiological_image.`handling` = table_handling.`id` 
+            JOIN table_patient ON table_patient.`mr_number` = table_radiological_image.`mr_number`
+            JOIN table_radiology_reading ON table_radiology_reading.`radiology` = table_radiological_image.`id`
+        GROUP BY NAME
         ");
         $this->load->view('report/p-handling', $data);
     }
@@ -93,11 +98,12 @@ class Report extends CI_Controller {
 
     function printFilm() {
         $data['dataRoom']       = $this->db->query("SELECT 
-            table_film.`size` as name,
+            table_film.`size` AS name,
             COUNT(table_radiological_image.`mr_number`) AS qty
         FROM table_film
             JOIN table_handling ON table_handling.`film` = table_film.`id`
             JOIN table_radiological_image ON table_radiological_image.`handling` = table_handling.`id`
+            JOIN table_patient ON table_patient.`mr_number` = table_radiological_image.`mr_number`
             GROUP BY table_film.`size`
         ");
         $this->load->view('report/p-film', $data);
@@ -126,11 +132,12 @@ class Report extends CI_Controller {
 
     function printIncomeFilm() {
         $data['dataRoom']       = $this->db->query("SELECT 
-            table_film.`size` as name,
+            table_film.`size` AS name,
             SUM(table_handling.`amount`) AS qty
         FROM table_film
             JOIN table_handling ON table_handling.`film` = table_film.`id`
             JOIN table_radiological_image ON table_radiological_image.`handling` = table_handling.`id`
+            JOIN table_patient ON table_patient.`mr_number` = table_radiological_image.`mr_number`
             GROUP BY table_film.`size`
         ");
         $this->load->view('report/p-income-film', $data);
@@ -138,10 +145,11 @@ class Report extends CI_Controller {
 
     function printIncomeHandling() {
         $data['dataRoom']       = $this->db->query("SELECT 
-            name,
+            table_handling.name,
             SUM(table_handling.`amount`) AS qty
         FROM table_radiological_image 
             JOIN table_handling ON table_radiological_image.`handling` = table_handling.`id` 
+            JOIN table_patient ON table_patient.`mr_number` = table_radiological_image.`mr_number`
             JOIN table_radiology_reading ON table_radiology_reading.`radiology` = table_radiological_image.`id`
             GROUP BY NAME
         ");
