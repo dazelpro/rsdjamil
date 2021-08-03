@@ -96,6 +96,7 @@
                                         <tr>
                                             <th>Kode Film</th>
                                             <th>Ukuran Film</th>
+                                            <th>Stok Film</th>
                                             <th>Action  </th>
                                         </tr>
                                     </thead>
@@ -106,6 +107,7 @@
                                         <tr>
                                             <td><?php echo $row->id;?></td>
                                             <td><?php echo $row->size;?></td>
+                                            <td><?php echo $row->stock;?></td>
                                             <td>
                                                 <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalEdit<?php echo $row->id;?>">Edit</button>
                                                 <button class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modalDelete<?php echo $row->id;?>">Delete</button>
@@ -139,6 +141,8 @@
                             <input type="text" name="code" readonly class="form-control" value="F<?php echo sprintf("%04s", $code)?>" required> <br>
                             <label style="font-weight:bold">Ukuran Film</label>
                             <input type="text" name="size" pattern="[^';*\x22]+" class="form-control" required> <br>
+                            <label style="font-weight:bold">Stok Film</label>
+                            <input type="number" name="stock" pattern="[^';*\x22]+" class="form-control" required> <br>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -172,8 +176,10 @@
                         <div class="form-group">
                             <label style="font-weight:bold">Kode</label>
                             <input type="text" name="code" readonly class="form-control" value="<?php echo $row->id;?>" required> <br>
-                            <label style="font-weight:bold">Nama Ruangan</label>
+                            <label style="font-weight:bold">Ukuran Film</label>
                             <input type="text" name="size" pattern="[^';*\x22]+" class="form-control" value="<?php echo $row->size;?>" autocomplete="off" required> <br>
+                            <label style="font-weight:bold">Stok Film</label>
+                            <input type="text" name="stock" pattern="[^';*\x22]+" class="form-control" value="<?php echo $row->stock;?>" autocomplete="off" required> <br>
                         </div>
                     </div>
                     <div class="modal-footer">

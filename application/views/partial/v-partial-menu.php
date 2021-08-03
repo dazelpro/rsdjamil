@@ -86,7 +86,7 @@
                     <i class="bi bi-collection-fill"></i>
                     <span>Laporan</span>
                 </a>
-                <ul class="submenu <?php if($activeMenu == 11 || $activeMenu == 12 || $activeMenu == 13 || $activeMenu == 14 || $activeMenu == 15 || $activeMenu == 16):?> active <?php endif;?>">
+                <ul class="submenu <?php if($activeMenu == 11 || $activeMenu == 12 || $activeMenu == 13 || $activeMenu == 14 || $activeMenu == 15 || $activeMenu == 16 || $activeMenu == 17):?> active <?php endif;?>">
                     <li class="submenu-item <?php if($activeMenu == 11):?> active <?php endif;?>">
                         <a href="<?php echo base_url().'report/service-radiographer'?>">Pelayanan Radiografer</a>
                     </li>
@@ -98,6 +98,9 @@
                     </li>
                     <li class="submenu-item <?php if($activeMenu == 14):?> active <?php endif;?>">
                         <a href="<?php echo base_url().'report/film-use'?>">Penggunaan Film</a>
+                    </li>
+                    <li class="submenu-item <?php if($activeMenu == 17):?> active <?php endif;?>">
+                        <a href="<?php echo base_url().'report/stock'?>">Stok Film</a>
                     </li>
                     <li class="submenu-item <?php if($activeMenu == 15):?> active <?php endif;?>">
                         <a href="<?php echo base_url().'report/room'?>">Per Ruangan</a>

@@ -100,6 +100,8 @@
                                                 <label for="disabledInput">Kode</label>
                                                 <input type="text" name="code" value="RAD<?php echo random_string('alnum', 7)?>" class="form-control" id="disabledInput" readonly required>
                                                 <input type="hidden" name="user" value="<?php echo $this->session->userdata('id');?>">
+                                                <input type="hidden" name="stock" id="stock">
+                                                <input type="hidden" name="film" id="film">
                                             </div>
                                             <label for="disabledInput">Tindakan</label>
                                             <div class="input-group mb-3">
@@ -214,9 +216,10 @@
                     <table class="table table-striped" id="mytable1">
                         <thead>
                             <tr>
-                                <th>No MR</th>
                                 <th>Nama</th>
+                                <th>Ukuran</th>
                                 <th>Tarif</th>
+                                <th>Stok Film</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -225,13 +228,21 @@
                                 foreach ($dataHandling->result() as $row):
                             ?>
                             <tr>
-                                <td><?php echo $row->id;?></td>
                                 <td><?php echo $row->name;?></td>
+                                <td><?php echo $row->size;?></td>
                                 <td>Rp. <?php echo number_format($row->amount);?></td>
+                                <td><?php echo $row->stock;?></td>
                                 <td>
-                                    <button class="btn btn-sm btn-primary" onclick="
-                                    document.getElementById('handling').value='<?php echo $row->id;?>';
-                                    " data-bs-dismiss="modal">OK</button>
+                                    <?php if($row->stock > 0):?>
+                                        <button class="btn btn-sm btn-primary" onclick="
+                                        document.getElementById('handling').value='<?php echo $row->id;?>';
+                                        document.getElementById('stock').value='<?php echo $row->stock;?>';
+                                        document.getElementById('film').value='<?php echo $row->film;?>';
+                                        " data-bs-dismiss="modal">OK</button>
+                                    <?php endif;?>
+                                    <?php if($row->stock <= 0):?>
+                                        <button class="btn btn-sm btn-primary disabled">OK</button>
+                                    <?php endif;?>
                                 </td>
                             </tr>
                             <?php endforeach; ?>

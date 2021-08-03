@@ -65,13 +65,8 @@ class Handling extends CI_Controller {
 
 	function pageInsertRadiology() {
         $data['dataRad']       	= $this->db->query("SELECT * FROM table_radiological_image");
-        $data['dataHandling']   = $this->db->query("SELECT * FROM table_handling");
+        $data['dataHandling']   = $this->db->query("SELECT table_handling.id, table_handling.film, name, amount, size, stock FROM table_handling JOIN table_film ON table_film.`id` = table_handling.`film`");
         $data['dataPatient']   	= $this->db->query("SELECT table_patient.`mr_number`, table_patient.`name` AS name_patient, table_doctor.`name` AS name_doctor, table_doctor_radiology.`name` AS name_doctor_rad, table_room.`name` AS room FROM table_patient JOIN table_doctor ON table_patient.`doctor` = table_doctor.`id` JOIN table_doctor_radiology ON table_doctor_radiology.`id` = table_patient.`radiology_doctor` JOIN table_room ON table_room.`id` = table_patient.`room`");
-        // $query                  = $this->db->query("SELECT MAX(id) AS newCode FROM table_radiological_image")->row_array();
-        // $lastID                 = $query['newCode'];
-        // $numb                   = substr($lastID, 3, 4);
-        // $newID                  = $numb + 1;
-        // $data['code']           = $newID;
         $data['activeMenu']     = '6';
         $this->load->view('radiology/v-add-radiology', $data);
     }
@@ -113,7 +108,11 @@ class Handling extends CI_Controller {
                 $mr            = $this->input->post('mr');
                 $handling      = $this->input->post('handling');
                 $user          = $this->input->post('user');
+                $film          = $this->input->post('film');
+                $stockInput    = $this->input->post('stock');
+                $stock         = $stockInput - 1;
                 $this->db->query("INSERT INTO table_radiological_image (id,mr_number,handling,file,admin) VALUES ('$id','$mr','$handling','$foto','$user')");
+                $this->db->query("UPDATE table_film SET stock = '$stock' WHERE id = '$film'");
                 redirect('handling/radiology');
 			}else{
 				echo $this->session->set_flashdata('msg','<div class="alert alert-danger border-danger">

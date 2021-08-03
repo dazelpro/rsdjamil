@@ -11,12 +11,12 @@
 <body>
 <img style="max-width: 600px; margin-top: 50px; border-bottom: 1px solid black;" src="<?php echo base_url().'assets'?>/images/kop-laporan.png" alt="">
     
-    <h3>Laporan Penggunaan Film</h3>
+    <h3>Laporan Sisa Stok Film</h3>
     <table style="width: 100%;" border="1" id="tables">
         <thead>
             <tr>
-                <th>Nama Jenis Tindakan</th>
-                <th>Jumlah Film</th>
+                <th>Ukuran Film</th>
+                <th>Stok</th>
             </tr>
         </thead>
         <tbody>
@@ -25,17 +25,13 @@
             ?>
             <tr>
                 <td>
-                    <?php echo $row->name;?>
+                    <?php echo $row->size;?>
                 </td>
                 <td>
-                    <?php echo $row->qty;?> Lembar
+                    <?php echo $row->stock;?> Lembar
                 </td>
             </tr>
             <?php endforeach; ?>
-            <!-- <tr style="background: grey; color: white; font-weight: bold;">
-                <td>Total</td>
-                <td>30 Lembar</td>
-            </tr> -->
         </tbody>
     </table>
 </body>

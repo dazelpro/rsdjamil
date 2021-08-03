@@ -56,14 +56,16 @@ class Master extends CI_Controller {
     function insertFilmSize() {
         $id                     = $this->input->post('code');
 		$size                   = $this->input->post('size');
-		$this->db->query("INSERT INTO table_film (id,size) VALUES ('$id','$size')");
+		$stock                  = $this->input->post('stock');
+		$this->db->query("INSERT INTO table_film (id,size,stock) VALUES ('$id','$size','$stock')");
 		redirect('master/film-size');
     }
 
     function editFilmSize() {
         $id                     = $this->input->post('code');
         $size                   = $this->input->post('size');
-		$this->db->query("UPDATE table_film SET size = '$size' WHERE id = '$id'");
+        $stock                  = $this->input->post('stock');
+		$this->db->query("UPDATE table_film SET size = '$size', stock = '$stock' WHERE id = '$id'");
 		redirect('master/film-size');
     }
 
