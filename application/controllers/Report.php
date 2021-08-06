@@ -109,15 +109,15 @@ class Report extends CI_Controller {
         $this->load->view('report/p-film', $data);
     }
 
-    function pageStock() {
-        $data['activeMenu']     = '17';
-        $this->load->view('report/v-film-stock', $data);
-    }
+    // function pageStock() {
+    //     $data['activeMenu']     = '17';
+    //     $this->load->view('report/v-film-stock', $data);
+    // }
 
-    function printStock() {
-        $data['dataRoom']       = $this->db->query("SELECT * FROM table_film");
-        $this->load->view('report/p-film-stock', $data);
-    }
+    // function printStock() {
+    //     $data['dataRoom']       = $this->db->query("SELECT * FROM table_film");
+    //     $this->load->view('report/p-film-stock', $data);
+    // }
 
     function pageRoom() {
         $data['activeMenu']     = '15';

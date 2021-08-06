@@ -99,9 +99,9 @@
                     <li class="submenu-item <?php if($activeMenu == 14):?> active <?php endif;?>">
                         <a href="<?php echo base_url().'report/film-use'?>">Penggunaan Film</a>
                     </li>
-                    <li class="submenu-item <?php if($activeMenu == 17):?> active <?php endif;?>">
+                    <!-- <li class="submenu-item <?php if($activeMenu == 17):?> active <?php endif;?>">
                         <a href="<?php echo base_url().'report/stock'?>">Stok Film</a>
-                    </li>
+                    </li> -->
                     <li class="submenu-item <?php if($activeMenu == 15):?> active <?php endif;?>">
                         <a href="<?php echo base_url().'report/room'?>">Per Ruangan</a>
                     </li>
