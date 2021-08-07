@@ -33,7 +33,7 @@ insert  into `table_account`(`id`,`email`,`password`,`role`,`status`,`create_at`
 ('D0001','ikhsan@gmail.com','21232f297a57a5a743894a0e4a801fc3',1,'1','2021-07-26 15:12:29'),
 ('D0002','dani_ramadhan@gmail.com','21232f297a57a5a743894a0e4a801fc3',1,'1','2021-07-26 15:14:10'),
 ('A0001','admin@gmail.com','21232f297a57a5a743894a0e4a801fc3',0,'1','2021-07-18 21:01:32'),
-('A0002','balmond@gmail.com','21232f297a57a5a743894a0e4a801fc3',0,'0','2021-07-26 12:22:02'),
+('A0002','balmond@gmail.com','21232f297a57a5a743894a0e4a801fc3',0,'1','2021-07-26 12:22:02'),
 ('D0003','dokter@gmail.com','21232f297a57a5a743894a0e4a801fc3',1,'1','2021-07-29 11:47:16'),
 ('R0003','radiologi@gmail.com','21232f297a57a5a743894a0e4a801fc3',2,'1','2021-07-29 11:49:13'),
 ('A0003','dazelpro@gmail.com','49704c99a86cd1a0760c555ff10d23d0',0,'1','2021-07-29 11:49:58');
@@ -93,7 +93,7 @@ CREATE TABLE `table_doctor_radiology` (
 insert  into `table_doctor_radiology`(`id`,`name`,`phone`,`address`) values 
 ('R0001','dr. Ratih Suciana, Sp. Rad','085277864328','Jl. Jendral Sudirman No 188'),
 ('R0002','dr. Indra Kuncoro, Sp. Rad','081388009311','Komp. Mega Permai Indah 9 Padang'),
-('R0003','dr. Puri Aprilon, Sp. Rad','082399843111','Perumnas Belimbing Blok C No. 8');
+('R0003','dr. Junaidi Aprilon, Sp. Rad','082399843111','Perumnas Belimbing Blok C No. 8');
 
 /*Table structure for table `table_film` */
 
@@ -109,9 +109,9 @@ CREATE TABLE `table_film` (
 /*Data for the table `table_film` */
 
 insert  into `table_film`(`id`,`size`,`stock`) values 
-('F0001','8x10',298),
-('F0002','11x14',89),
-('F0003','14x17',0);
+('F0001','8x10',296),
+('F0002','11x14',87),
+('F0003','14x17',97);
 
 /*Table structure for table `table_handling` */
 
@@ -151,10 +151,6 @@ CREATE TABLE `table_patient` (
 
 /*Data for the table `table_patient` */
 
-insert  into `table_patient`(`mr_number`,`name`,`place_of_birth`,`date_of_birth`,`gender`,`room`,`doctor`,`radiology_doctor`,`admin`) values 
-('MR0001','Alwan Aditia','Padang','2021-12-31','Pria','R0002','D0003','R0003','A0001'),
-('MR0002','Adil Saputra','Padang','2001-01-01','Pria','R0002','D0001','R0003','A0001');
-
 /*Table structure for table `table_radiological_image` */
 
 DROP TABLE IF EXISTS `table_radiological_image`;
@@ -174,11 +170,6 @@ CREATE TABLE `table_radiological_image` (
 
 /*Data for the table `table_radiological_image` */
 
-insert  into `table_radiological_image`(`id`,`mr_number`,`handling`,`file`,`status`,`create_at`,`admin`) values 
-('RAD2i7cfPz','MR0001','T0001','745d18960a26b3ed9d035c1583d749ea.jpeg',0,'2021-08-03 13:26:53','A0001'),
-('RAD9b4SlwO','MR0001','T0001','78f21cb1e00c5b537049fdfce504ea34.jpeg',0,'2021-08-03 13:29:05','A0001'),
-('RADV1kMSz7','MR0001','T0002','ac6281787deaa2a90bcd5e7f1eabf559.jpeg',0,'2021-08-03 13:29:35','A0001');
-
 /*Table structure for table `table_radiology_reading` */
 
 DROP TABLE IF EXISTS `table_radiology_reading`;
@@ -188,7 +179,7 @@ CREATE TABLE `table_radiology_reading` (
   `radiology` char(10) DEFAULT NULL,
   `description` longtext DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `table_radiology_reading` */
 

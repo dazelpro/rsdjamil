@@ -14,7 +14,7 @@
     <h3>Laporan Kinerja Pelayanan Radiographer</h3>
     <br>
     <?php
-        $query = $this->db->query("SELECT table_admin.`id`, table_admin.`name` FROM table_admin JOIN table_radiological_image ON table_radiological_image.`admin` = table_admin.`id` GROUP BY table_admin.`name` ORDER BY table_admin.`id`");
+        $query = $this->db->query("SELECT table_admin.`id`, table_admin.`name` FROM table_admin JOIN table_radiological_image ON table_radiological_image.`admin` = table_admin.`id` WHERE mr_number IS NOT NULL GROUP BY table_admin.`name` ORDER BY table_admin.`name`");
         foreach ($query->result() as $admin) :
     ?>
     <div style="padding-bottom: 30px">
